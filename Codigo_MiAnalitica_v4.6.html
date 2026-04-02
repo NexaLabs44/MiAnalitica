@@ -1,0 +1,1679 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MiAnalítica</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CiAgPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9IiMxZTRkN2IiLz4KICA8cGF0aCBkPSJNMzIgMTAgQzMyIDEwIDE2IDI4IDE2IDM4IEMxNiA0Ny40IDIzLjIgNTQgMzIgNTQgQzQwLjggNTQgNDggNDcuNCA0OCAzOCBDNDggMjggMzIgMTAgMzIgMTBaIiBmaWxsPSIjZmZmZmZmIiBvcGFjaXR5PSIwLjkiLz4KICA8cGF0aCBkPSJNMzIgMTUgQzMyIDE1IDE5IDMxIDE5IDM5IEMxOSA0Ni44IDI0LjkgNTIgMzIgNTIgQzM5LjEgNTIgNDUgNDYuOCA0NSAzOSBDNDUgMzEgMzIgMTUgMzIgMTVaIiBmaWxsPSIjYzA2MjNjIi8+CiAgPGVsbGlwc2UgY3g9IjI2LjUiIGN5PSIzNyIgcng9IjMuNSIgcnk9IjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4yOCkiIHRyYW5zZm9ybT0icm90YXRlKC0yMCAyNi41IDM3KSIvPgo8L3N2Zz4=">
+<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CiAgPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9IiMxZTRkN2IiLz4KICA8cGF0aCBkPSJNMzIgMTAgQzMyIDEwIDE2IDI4IDE2IDM4IEMxNiA0Ny40IDIzLjIgNTQgMzIgNTQgQzQwLjggNTQgNDggNDcuNCA0OCAzOCBDNDggMjggMzIgMTAgMzIgMTBaIiBmaWxsPSIjZmZmZmZmIiBvcGFjaXR5PSIwLjkiLz4KICA8cGF0aCBkPSJNMzIgMTUgQzMyIDE1IDE5IDMxIDE5IDM5IEMxOSA0Ni44IDI0LjkgNTIgMzIgNTIgQzM5LjEgNTIgNDUgNDYuOCA0NSAzOSBDNDUgMzEgMzIgMTUgMzIgMTVaIiBmaWxsPSIjYzA2MjNjIi8+CiAgPGVsbGlwc2UgY3g9IjI2LjUiIGN5PSIzNyIgcng9IjMuNSIgcnk9IjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4yOCkiIHRyYW5zZm9ybT0icm90YXRlKC0yMCAyNi41IDM3KSIvPgo8L3N2Zz4=">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="MiAnalitica">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#1e4d7b">
+<link rel="manifest" href="data:application/json;base64,eyJuYW1lIjoiTWlBbmFsaXRpY2EiLCJzaG9ydF9uYW1lIjoiTWlBbmFsaXRpY2EiLCJzdGFydF91cmwiOiIuIiwiZGlzcGxheSI6InN0YW5kYWxvbmUiLCJiYWNrZ3JvdW5kX2NvbG9yIjoiI2Y3ZjJlYiIsInRoZW1lX2NvbG9yIjoiIzFlNGQ3YiJ9">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+:root {
+  --bg:        #f7f2eb;
+  --bg2:       #efe8dc;
+  --surface:   #faf7f2;
+  --surface2:  #f0e9de;
+  --border:    #ddd3c4;
+  --border2:   #ccc0ae;
+  --sea:       #1e4d7b;
+  --sea-light: #2e6da4;
+  --sea-dim:   rgba(30,77,123,0.08);
+  --terra:     #c0623c;
+  --terra-dim: rgba(192,98,60,0.1);
+  --terra-light:#d4784f;
+  --olive:     #6b7c3e;
+  --olive-dim: rgba(107,124,62,0.1);
+  --sand:      #c9a97a;
+  --sand-light:#dfc09a;
+  --amber:     #d4933a;
+  --amber-dim: rgba(212,147,58,0.12);
+  --text:      #2c2417;
+  --text-dim:  #7a6b58;
+  --text-muted:#b5a592;
+  --font-serif:'Cormorant Garamond',Georgia,serif;
+  --font-sans: 'DM Sans',sans-serif;
+  --font-mono: 'DM Mono',monospace;
+  --radius:12px;
+  --shadow:0 2px 12px rgba(44,36,23,0.08);
+  --shadow-lg:0 8px 32px rgba(44,36,23,0.12);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:var(--font-sans);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+  opacity:.6;}
+
+/* LAYOUT */
+.shell{display:flex;min-height:100vh;}
+
+/* SIDEBAR */
+.sidebar{width:270px;flex-shrink:0;background:var(--sea);display:flex;flex-direction:column;
+  position:fixed;top:0;left:0;height:100vh;overflow-y:auto;z-index:100;
+  box-shadow:4px 0 24px rgba(30,77,123,0.25);}
+.sidebar::after{content:'';position:absolute;bottom:0;left:0;right:0;height:140px;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 270 140'%3E%3Cpath d='M0 80 Q67 40 135 70 Q202 100 270 60 L270 140 L0 140Z' fill='rgba(255,255,255,0.04)'/%3E%3Cpath d='M0 100 Q67 60 135 90 Q202 120 270 80 L270 140 L0 140Z' fill='rgba(255,255,255,0.03)'/%3E%3C/svg%3E") bottom/cover no-repeat;
+  pointer-events:none;}
+.sb-head{padding:32px 24px 24px;border-bottom:1px solid rgba(255,255,255,0.1);}
+.logo{display:flex;align-items:center;gap:12px;margin-bottom:6px;}
+.logo-em{width:40px;height:40px;background:linear-gradient(135deg,var(--terra-light),var(--terra));
+  border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.2);}
+.logo-name{font-family:var(--font-serif);font-size:22px;font-weight:700;color:#fff;letter-spacing:0.3px;}
+.logo-tag{font-size:10px;color:rgba(255,255,255,0.4);font-family:var(--font-mono);letter-spacing:1.2px;text-transform:uppercase;margin-left:52px;}
+.nav{padding:20px 12px;flex:1;}
+.nav-lbl{font-size:10px;font-family:var(--font-mono);color:rgba(255,255,255,0.3);letter-spacing:1.5px;text-transform:uppercase;padding:0 12px;margin:16px 0 6px;}
+.nav-item{display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;cursor:pointer;margin-bottom:3px;
+  font-size:14px;font-weight:500;color:rgba(255,255,255,0.6);transition:all 0.2s;position:relative;}
+.nav-item:hover{background:rgba(255,255,255,0.08);color:#fff;}
+.nav-item.active{background:rgba(255,255,255,0.14);color:#fff;box-shadow:inset 3px 0 0 var(--sand-light);}
+.nav-icon{width:32px;height:32px;background:rgba(255,255,255,0.08);border-radius:8px;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background 0.2s;color:rgba(255,255,255,0.7);}
+.nav-item.active .nav-icon,.nav-item:hover .nav-icon{background:rgba(255,255,255,0.16);}
+.api-panel{padding:16px;border-top:1px solid rgba(255,255,255,0.1);position:relative;z-index:1;}
+.api-lbl{font-size:10px;font-family:var(--font-mono);color:rgba(255,255,255,0.35);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;}
+.api-row{display:flex;gap:6px;}
+.api-input{flex:1;background:rgba(0,0,0,0.2);border:1px solid rgba(255,255,255,0.1);
+  border-radius:8px;padding:8px 10px;color:#fff;font-family:var(--font-mono);font-size:11px;
+  outline:none;transition:border-color 0.2s;}
+.api-input:focus{border-color:var(--sand);}
+.api-input::placeholder{color:rgba(255,255,255,0.25);}
+.api-eye{background:rgba(0,0,0,0.2);border:1px solid rgba(255,255,255,0.1);
+  color:rgba(255,255,255,0.5);border-radius:8px;padding:0 10px;cursor:pointer;font-size:13px;transition:all 0.15s;}
+.api-eye:hover{color:#fff;border-color:rgba(255,255,255,0.3);}
+.api-ok{color:#7ecba1;font-size:10px;font-family:var(--font-mono);margin-top:4px;}
+.api-err{color:#f4a58a;font-size:10px;font-family:var(--font-mono);margin-top:4px;}
+
+/* MAIN */
+.main{margin-left:270px;flex:1;display:flex;flex-direction:column;min-height:100vh;}
+.topbar{background:var(--surface);border-bottom:1px solid var(--border);padding:20px 36px;
+  display:flex;align-items:center;justify-content:space-between;
+  position:sticky;top:0;z-index:50;box-shadow:0 1px 0 var(--border);}
+.topbar h1{font-family:var(--font-serif);font-size:26px;font-weight:600;color:var(--sea);line-height:1;letter-spacing:0.3px;}
+.topbar p{font-size:12px;color:var(--text-dim);margin-top:3px;font-family:var(--font-mono);}
+.btn-up{display:flex;align-items:center;gap:8px;background:var(--terra);color:#fff;border:none;
+  border-radius:10px;padding:10px 20px;font-family:var(--font-sans);font-size:13px;font-weight:600;
+  cursor:pointer;transition:all 0.2s;box-shadow:0 3px 12px rgba(192,98,60,0.35);}
+.btn-up:hover{background:var(--terra-light);transform:translateY(-1px);box-shadow:0 5px 16px rgba(192,98,60,0.4);}
+.content{padding:36px;flex:1;}
+
+/* VIEWS */
+.view{display:none;} .view.active{display:block;}
+
+/* SEC TITLE */
+.sec{font-family:var(--font-serif);font-size:20px;font-weight:600;color:var(--sea);
+  display:flex;align-items:center;gap:14px;margin-bottom:20px;margin-top:32px;}
+.sec:first-child{margin-top:0;}
+.sec::after{content:'';flex:1;height:1px;background:var(--border);}
+
+/* PILLS */
+.pills{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px;}
+.pill{display:flex;align-items:center;gap:7px;background:var(--surface);border:1px solid var(--border);
+  border-radius:20px;padding:6px 14px;font-size:12px;font-family:var(--font-mono);color:var(--text-dim);box-shadow:var(--shadow);}
+.pd{width:7px;height:7px;border-radius:50%;}
+
+/* STATS */
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px;margin-bottom:32px;}
+.stat-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+  padding:20px;box-shadow:var(--shadow);position:relative;overflow:hidden;transition:transform 0.2s,box-shadow 0.2s;}
+.stat-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg);}
+.stat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;}
+.stat-card.ok::before{background:var(--olive);} .stat-card.hi::before{background:var(--terra);} .stat-card.lo::before{background:var(--amber);}
+.slbl{font-size:10px;font-family:var(--font-mono);color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;}
+.sval{font-family:var(--font-serif);font-size:32px;font-weight:700;line-height:1;}
+.sval.ok{color:var(--olive);} .sval.hi{color:var(--terra);} .sval.lo{color:var(--amber);}
+.sunit{font-size:11px;font-family:var(--font-mono);color:var(--text-muted);margin-top:4px;}
+.strend{font-size:11px;font-family:var(--font-mono);margin-top:8px;}
+.t-up{color:var(--terra);} .t-dn{color:var(--olive);} .t-eq{color:var(--text-muted);}
+
+/* CHARTS */
+.charts-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:18px;margin-bottom:32px;}
+.chart-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px 22px;box-shadow:var(--shadow);}
+.chead{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:14px;}
+.cname{font-family:var(--font-serif);font-size:16px;font-weight:600;color:var(--sea);}
+.ccat{font-size:10px;font-family:var(--font-mono);color:var(--text-muted);margin-top:2px;}
+.cval{font-family:var(--font-serif);font-size:26px;font-weight:700;text-align:right;line-height:1;}
+.cval.ok{color:var(--olive);} .cval.hi{color:var(--terra);} .cval.lo{color:var(--amber);}
+.cunit{font-size:10px;font-family:var(--font-mono);color:var(--text-muted);text-align:right;}
+.sbadge{font-size:10px;font-family:var(--font-mono);border-radius:20px;padding:3px 10px;margin-top:4px;display:inline-block;font-weight:500;}
+.b-ok{background:var(--olive-dim);color:var(--olive);} .b-hi{background:var(--terra-dim);color:var(--terra);} .b-lo{background:var(--amber-dim);color:var(--amber);}
+.cwrap{height:110px;position:relative;}
+
+/* HISTORICO */
+.he{margin-bottom:36px;}
+.hh{display:flex;align-items:center;gap:12px;margin-bottom:12px;flex-wrap:wrap;}
+.dtag{background:var(--sea);color:#fff;border-radius:20px;padding:5px 14px;font-size:12px;font-family:var(--font-mono);font-weight:500;}
+.hfile{font-size:12px;font-family:var(--font-mono);color:var(--text-dim);}
+.hcnt{margin-left:auto;font-size:11px;font-family:var(--font-mono);color:var(--text-muted);}
+.twrap{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);}
+.htbl{width:100%;border-collapse:collapse;font-size:13px;}
+.htbl th{background:var(--bg2);padding:10px 16px;text-align:left;font-size:10px;font-family:var(--font-mono);
+  color:var(--text-dim);text-transform:uppercase;letter-spacing:1px;border-bottom:1px solid var(--border);font-weight:400;}
+.htbl td{padding:10px 16px;border-bottom:1px solid var(--border);font-family:var(--font-mono);font-size:12px;}
+.htbl tr:last-child td{border-bottom:none;} .htbl tr:hover td{background:var(--bg2);}
+.tn{font-weight:500;color:var(--text);font-family:var(--font-sans);font-size:13px;}
+.tok{color:var(--olive);font-weight:600;} .thi{color:var(--terra);font-weight:600;} .tlo{color:var(--amber);font-weight:600;}
+.tref{color:var(--text-muted);}
+.vup{color:var(--terra);} .vdn{color:var(--olive);} .veq{color:var(--text-muted);}
+.ibadge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:10px;}
+
+/* PERFIL */
+.pg{display:grid;grid-template-columns:320px 1fr;gap:24px;}
+@media(max-width:900px){.pg{grid-template-columns:1fr;}}
+.pc{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);}
+.pban{height:80px;background:linear-gradient(135deg,var(--sea) 0%,var(--sea-light) 60%,var(--sand) 100%);position:relative;}
+.pav{width:72px;height:72px;background:var(--surface);border:3px solid var(--surface);
+  border-radius:50%;position:absolute;bottom:-36px;left:24px;
+  display:flex;align-items:center;justify-content:center;font-size:32px;box-shadow:var(--shadow);}
+.pb{padding:48px 24px 24px;}
+.pn{font-family:var(--font-serif);font-size:24px;font-weight:600;color:var(--sea);margin-bottom:4px;}
+.ps{font-size:12px;font-family:var(--font-mono);color:var(--text-dim);margin-bottom:20px;}
+.pf{margin-bottom:14px;}
+.pf label{display:block;font-size:10px;font-family:var(--font-mono);color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:5px;}
+.pf input,.pf select{width:100%;background:var(--bg2);border:1px solid var(--border);border-radius:8px;
+  padding:9px 12px;color:var(--text);font-family:var(--font-sans);font-size:13px;outline:none;transition:border-color 0.2s;}
+.pf input:focus,.pf select:focus{border-color:var(--sea);}
+.pf select{appearance:none;}
+.btn-save{background:var(--sea);color:#fff;border:none;border-radius:10px;padding:11px 24px;
+  font-family:var(--font-sans);font-size:14px;font-weight:600;cursor:pointer;transition:all 0.2s;width:100%;margin-top:8px;
+  box-shadow:0 3px 12px rgba(30,77,123,0.3);}
+.btn-save:hover{background:var(--sea-light);transform:translateY(-1px);}
+.psp{display:flex;flex-direction:column;gap:20px;}
+.psc{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);}
+.pst{font-family:var(--font-serif);font-size:18px;font-weight:600;color:var(--sea);margin-bottom:14px;}
+.hring{display:flex;align-items:center;gap:20px;}
+.rc{position:relative;width:100px;height:100px;flex-shrink:0;}
+.rl{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.rpct{font-family:var(--font-serif);font-size:22px;font-weight:700;color:var(--olive);}
+.rsub{font-size:9px;font-family:var(--font-mono);color:var(--text-muted);}
+.rleg{flex:1;}
+.rrow{display:flex;align-items:center;gap:8px;margin-bottom:6px;font-size:12px;font-family:var(--font-mono);color:var(--text-dim);}
+.rdot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.ait{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:8px;border:1px solid;font-size:13px;margin-bottom:8px;}
+.ait.hi{background:var(--terra-dim);border-color:rgba(192,98,60,0.2);color:var(--terra);}
+.ait.lo{background:var(--amber-dim);border-color:rgba(212,147,58,0.2);color:var(--amber);}
+.ait.ok{background:var(--olive-dim);border-color:rgba(107,124,62,0.2);color:var(--olive);}
+.av{font-family:var(--font-mono);font-size:11px;font-weight:600;}
+
+/* UPLOAD */
+.dz{border:2px dashed var(--border2);border-radius:16px;padding:64px 40px;text-align:center;
+  cursor:pointer;transition:all 0.25s;background:var(--surface);box-shadow:var(--shadow);}
+.dz:hover,.dz.over{border-color:var(--sea);background:var(--sea-dim);}
+.di{font-size:52px;margin-bottom:14px;opacity:.45;}
+.dt{font-family:var(--font-serif);font-size:24px;font-weight:600;color:var(--sea);margin-bottom:8px;}
+.ds{font-size:13px;color:var(--text-dim);font-family:var(--font-mono);}
+#fi{display:none;}
+.ul{margin-top:28px;display:flex;flex-direction:column;gap:10px;}
+.ur{display:flex;align-items:center;gap:14px;background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);transition:box-shadow 0.2s;}
+.ur:hover{box-shadow:var(--shadow-lg);}
+.ui{flex:1;}
+.un{font-size:14px;font-weight:600;color:var(--sea);font-family:var(--font-serif);}
+.um{font-size:11px;font-family:var(--font-mono);color:var(--text-dim);margin-top:2px;}
+.bdel{background:none;border:1px solid var(--border2);color:var(--text-muted);border-radius:8px;
+  padding:6px 12px;font-size:11px;font-family:var(--font-sans);cursor:pointer;transition:all 0.15s;}
+.bdel:hover{border-color:var(--terra);color:var(--terra);}
+
+/* EMPTY */
+.empty{text-align:center;padding:80px 40px;color:var(--text-dim);}
+.ei{font-size:60px;opacity:.25;margin-bottom:16px;}
+.et{font-family:var(--font-serif);font-size:22px;color:var(--sea);margin-bottom:6px;}
+.es{font-size:13px;font-family:var(--font-mono);}
+
+/* OVERLAY */
+.overlay{position:fixed;inset:0;background:rgba(247,242,235,0.88);backdrop-filter:blur(10px);
+  display:none;align-items:center;justify-content:center;z-index:2000;}
+.overlay.on{display:flex;}
+.ovbox{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:44px 52px;
+  text-align:center;box-shadow:var(--shadow-lg);max-width:360px;}
+.wl{display:flex;gap:6px;justify-content:center;margin-bottom:22px;}
+.wb{width:5px;background:var(--sea);border-radius:3px;animation:wv 1.2s ease-in-out infinite;}
+.wb:nth-child(1){height:20px;animation-delay:0s;}
+.wb:nth-child(2){height:32px;animation-delay:0.15s;}
+.wb:nth-child(3){height:20px;animation-delay:0.3s;}
+.wb:nth-child(4){height:32px;animation-delay:0.45s;}
+.wb:nth-child(5){height:20px;animation-delay:0.6s;}
+@keyframes wv{0%,100%{transform:scaleY(1);opacity:.6;}50%{transform:scaleY(1.6);opacity:1;}}
+.ot{font-family:var(--font-serif);font-size:22px;font-weight:600;color:var(--sea);margin-bottom:6px;}
+.os{font-size:12px;font-family:var(--font-mono);color:var(--text-dim);}
+
+/* TOAST */
+.toast{position:fixed;bottom:24px;right:28px;background:var(--surface);border:1px solid var(--border);
+  border-radius:10px;padding:13px 20px;font-size:13px;font-family:var(--font-mono);
+  box-shadow:var(--shadow-lg);z-index:3000;transform:translateY(16px);opacity:0;transition:all 0.3s;
+  max-width:340px;pointer-events:none;}
+.toast.show{transform:translateY(0);opacity:1;}
+.toast.ok{border-left:3px solid var(--olive);}
+.toast.err{border-left:3px solid var(--terra);}
+.divider{border:none;border-top:1px dashed var(--border);margin:28px 0;opacity:.6;}
+::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-track{background:transparent;}
+::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px;}
+/* METADATA MODAL */
+.modal-bg{position:fixed;inset:0;background:rgba(44,36,23,0.5);backdrop-filter:blur(6px);
+  display:none;align-items:center;justify-content:center;z-index:3000;}
+.modal-bg.on{display:flex;}
+.modal-box{background:var(--surface);border:1px solid var(--border);border-radius:20px;
+  padding:36px 40px;box-shadow:var(--shadow-lg);max-width:460px;width:90%;}
+.modal-title{font-family:var(--font-serif);font-size:24px;font-weight:600;color:var(--sea);margin-bottom:4px;}
+.modal-sub{font-size:12px;font-family:var(--font-mono);color:var(--text-dim);margin-bottom:24px;}
+.modal-file{display:flex;align-items:center;gap:10px;background:var(--bg2);border:1px solid var(--border);
+  border-radius:10px;padding:12px 16px;margin-bottom:20px;}
+.modal-file-icon{font-size:22px;}
+.modal-file-name{font-size:13px;font-weight:600;color:var(--sea);font-family:var(--font-serif);}
+.modal-file-size{font-size:11px;font-family:var(--font-mono);color:var(--text-muted);}
+.mf{margin-bottom:16px;}
+.mf label{display:block;font-size:10px;font-family:var(--font-mono);color:var(--text-muted);
+  text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;}
+.mf input,.mf select{width:100%;background:var(--bg2);border:1px solid var(--border);border-radius:8px;
+  padding:10px 14px;color:var(--text);font-family:var(--font-sans);font-size:13px;outline:none;transition:border-color 0.2s;}
+.mf input:focus,.mf select:focus{border-color:var(--sea);}
+.mf select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%237a6b58'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;}
+.modal-tipo{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px;}
+.tipo-opt{border:2px solid var(--border);border-radius:10px;padding:14px 16px;cursor:pointer;
+  transition:all 0.2s;text-align:center;}
+.tipo-opt:hover{border-color:var(--sea-light);background:var(--sea-dim);}
+.tipo-opt.selected{border-color:var(--sea);background:var(--sea-dim);}
+.tipo-opt .tipo-icon{font-size:24px;margin-bottom:6px;}
+.tipo-opt .tipo-label{font-size:13px;font-weight:600;color:var(--sea);}
+.tipo-opt .tipo-sub{font-size:10px;font-family:var(--font-mono);color:var(--text-dim);}
+.modal-actions{display:flex;gap:10px;margin-top:8px;}
+.btn-modal-cancel{flex:1;background:none;border:1px solid var(--border2);color:var(--text-dim);
+  border-radius:10px;padding:11px;font-family:var(--font-sans);font-size:13px;cursor:pointer;transition:all 0.15s;}
+.btn-modal-cancel:hover{border-color:var(--terra);color:var(--terra);}
+.btn-modal-ok{flex:2;background:var(--sea);color:#fff;border:none;border-radius:10px;
+  padding:11px;font-family:var(--font-sans);font-size:14px;font-weight:600;cursor:pointer;
+  transition:all 0.2s;box-shadow:0 3px 10px rgba(30,77,123,0.3);}
+.btn-modal-ok:hover{background:var(--sea-light);transform:translateY(-1px);}
+
+/* HISTORIC TABLE FIXES */
+.htbl{width:100%;border-collapse:collapse;font-size:13px;table-layout:fixed;}
+.htbl th{white-space:nowrap;}
+.htbl td{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.col-param{width:220px;min-width:180px;}
+.col-unit{width:90px;}
+.col-ref{width:110px;}
+.col-date{width:110px;}
+
+
+/* EVOLUTION GRID */
+.evo-sec{margin-top:32px;margin-bottom:16px;font-size:17px;}
+.evo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-bottom:8px;}
+.evo-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+  padding:18px 20px;box-shadow:var(--shadow);transition:transform 0.2s,box-shadow 0.2s;position:relative;overflow:hidden;}
+.evo-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg);}
+.evo-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;}
+.evo-card.evo-card-alert::before{background:var(--terra);}
+.evo-card:not(.evo-card-alert)::before{background:var(--olive);}
+
+.btn-print{display:flex;align-items:center;gap:8px;background:var(--surface);color:var(--sea);
+  border:1px solid var(--border2);border-radius:10px;padding:10px 18px;
+  font-family:var(--font-sans);font-size:13px;font-weight:600;cursor:pointer;
+  transition:all 0.2s;box-shadow:var(--shadow);}
+.btn-print:hover{background:var(--sea-dim);border-color:var(--sea);transform:translateY(-1px);}
+
+.health-row-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+/* ═══════════════════════════════════════
+   MOBILE RESPONSIVE
+═══════════════════════════════════════ */
+
+/* Bottom nav for mobile */
+.mobile-nav{
+  display:none;
+  position:fixed;bottom:0;left:0;right:0;
+  background:var(--sea);
+  border-top:1px solid rgba(255,255,255,0.1);
+  z-index:200;
+  padding:0 4px;
+  padding-bottom:env(safe-area-inset-bottom, 0px);
+}
+.mobile-nav-items{display:flex;justify-content:space-around;align-items:stretch;}
+.mobile-nav-item{
+  flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:10px 4px 8px;cursor:pointer;
+  color:rgba(255,255,255,0.45);font-size:10px;font-family:var(--font-sans);
+  gap:5px;transition:all 0.2s;border:none;background:none;
+  letter-spacing:0.3px;font-weight:500;
+}
+.mobile-nav-item.active{color:#fff;}
+.mobile-nav-item:hover{color:rgba(255,255,255,0.8);}
+.mobile-nav-item .mni{display:flex;align-items:center;justify-content:center;width:24px;height:24px;}
+
+/* Mobile topbar */
+.mobile-topbar{
+  display:none;
+  background:var(--sea);
+  padding:14px 18px 14px;
+  align-items:center;justify-content:space-between;
+  position:sticky;top:0;z-index:150;
+  box-shadow:0 2px 12px rgba(30,77,123,0.3);
+}
+.mobile-logo{display:flex;align-items:center;gap:10px;}
+.mobile-logo-em{width:32px;height:32px;background:linear-gradient(135deg,var(--terra-light),var(--terra));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;}
+.mobile-logo-name{font-family:var(--font-serif);font-size:18px;font-weight:700;color:#fff;}
+.mobile-actions{display:flex;gap:8px;}
+
+.mobile-btn-upload{
+  display:flex;align-items:center;gap:7px;
+  background:var(--terra);color:#fff;border:none;
+  border-radius:10px;padding:9px 16px;
+  font-family:var(--font-sans);font-size:13px;font-weight:700;
+  cursor:pointer;transition:all 0.2s;
+  box-shadow:0 3px 10px rgba(192,98,60,0.4);
+  white-space:nowrap;
+}
+.mobile-btn-upload:hover{background:var(--terra-light);}
+
+.mobile-btn{background:rgba(255,255,255,0.12);border:none;border-radius:8px;padding:7px 10px;color:#fff;font-size:13px;cursor:pointer;transition:background 0.15s;}
+.mobile-btn:hover{background:rgba(255,255,255,0.2);}
+
+@media (max-width: 768px) {
+  .sidebar { display: none !important; }
+  .mobile-topbar { display: flex; }
+  .mobile-nav { display: block; }
+  .main { margin-left: 0 !important; padding-bottom: calc(68px + env(safe-area-inset-bottom, 0px)); }
+  .topbar { display: none; }
+  .content { padding: 14px 12px; }
+  /* Health row: stack on mobile */
+  .health-row-grid { grid-template-columns: 1fr; gap: 12px; }
+  /* Stats: 2 compact cols */
+  .stats-grid { grid-template-columns: repeat(2,1fr); gap: 10px; margin-bottom:20px; }
+  .stat-card { padding: 14px; }
+  .sval { font-size: 26px; }
+  /* Charts & evo: 1 col */
+  .charts-grid, .evo-grid { grid-template-columns: 1fr; gap: 12px; }
+  .evo-card { padding: 14px; }
+  /* Perfil: 1 col */
+  .pg { grid-template-columns: 1fr; gap: 14px; }
+  .pb { padding: 44px 18px 18px; }
+  /* Pills */
+  .pills { gap: 6px; margin-bottom: 18px; }
+  .pill { padding: 4px 10px; font-size: 11px; }
+  /* Sec titles */
+  .sec { font-size: 16px; margin-top: 24px; }
+  /* Historic table */
+  .twrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  /* Drop zone */
+  .dz { padding: 32px 20px; }
+  .dt { font-size: 18px; }
+  /* Upload rows */
+  .ur { flex-wrap: wrap; gap: 8px; padding: 12px 14px; }
+  /* Hring */
+  .hring { gap: 12px; }
+  /* Modals */
+  .modal-bg { align-items: flex-end; padding-bottom: 72px; }
+  .modal-box { padding: 24px 20px; border-radius: 20px 20px 0 0; max-width: 100%; margin: 0; width: 100%; }
+  /* Alerts in health */
+  .ait { padding: 8px 10px; font-size: 12px; }
+  /* psc */
+  .psc { padding: 16px; }
+  /* Nav icons size */
+  .mni svg { width: 22px; height: 22px; }
+  /* Chart wrap height */
+  .cwrap { height: 90px; }
+  /* Topbar */
+  .mobile-topbar { padding: 12px 16px; }
+}
+@media (max-width: 400px) {
+  .stats-grid { grid-template-columns: 1fr; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- MOBILE TOPBAR -->
+<div class="mobile-topbar" id="mobileTopbar">
+  <div class="mobile-logo">
+    <div class="mobile-logo-em" style="font-size:18px">🩸</div>
+    <span class="mobile-logo-name">MiAnalítica</span>
+  </div>
+  <div class="mobile-actions" id="mobileActions">
+    <button class="mobile-btn" onclick="openPrintModal()" title="Informe PDF"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg></button>
+    <button class="mobile-btn-upload" onclick="go('upload')" title="Subir Analítica"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg> Subir Analítica</button>
+  </div>
+</div>
+
+<!-- MOBILE BOTTOM NAV -->
+<nav class="mobile-nav">
+  <div class="mobile-nav-items">
+    <button class="mobile-nav-item active" id="mnav-dashboard" onclick="go('dashboard')">
+      <span class="mni"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></span>Dashboard
+    </button>
+    <button class="mobile-nav-item" id="mnav-historico" onclick="go('historico')">
+      <span class="mni"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/></svg></span>Historial
+    </button>
+    <button class="mobile-nav-item" id="mnav-perfil" onclick="go('perfil')">
+      <span class="mni"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></span>Perfil
+    </button>
+  </div>
+</nav>
+
+<div class="shell">
+
+<aside class="sidebar">
+  <div class="sb-head">
+    <div class="logo">
+      <div class="logo-em">🩸</div>
+      <span class="logo-name">MiAnalítica</span>
+    </div>
+    <div class="logo-tag">Historial de Analíticas</div>
+    <div style="font-size:10px;color:rgba(255,255,255,0.25);font-family:var(--font-mono);letter-spacing:1px;margin-top:6px;margin-left:52px;">v4.6 · Haiku 4.5</div>
+  </div>
+  <nav class="nav">
+    <div class="nav-lbl">Menú</div>
+    <div class="nav-item active" onclick="go('dashboard')">
+      <div class="nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>Dashboard
+    </div>
+    <div class="nav-item" onclick="go('historico')">
+      <div class="nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/></svg></div>Histórico Analíticas
+    </div>
+  </nav>
+  <div style="flex:1"></div>
+  <div style="padding:0 12px 16px;">
+    <div class="nav-item" onclick="go('perfil')" id="nav-perfil" style="border-top:1px solid rgba(255,255,255,0.08);padding-top:14px;margin-top:4px;">
+      <div class="nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>Perfil
+    </div>
+  </div>
+</aside>
+
+<main class="main">
+  <div class="topbar">
+    <div>
+      <h1 id="pt">Dashboard</h1>
+      <p  id="ps">Vista general de tus analíticas</p>
+    </div>
+    <div id="topbarActions" style="display:flex;gap:10px;align-items:center">
+      <button class="btn-print" onclick="openPrintModal()" style="display:flex;align-items:center;gap:8px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg> Informe PDF</button>
+      <button class="btn-up" onclick="go('upload')" style="display:flex;align-items:center;gap:8px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg> Subir Analítica</button>
+    </div>
+  </div>
+  <div class="content">
+
+    <!-- DASHBOARD -->
+    <div id="v-dashboard" class="view active">
+      <div id="dashHealthRow" style="display:none;margin-bottom:32px">
+        <div class="health-row-grid">
+          <div class="psc"><div class="pst">Estado general · <span id="dashLatDate" style="font-size:13px;font-weight:400;font-family:var(--font-mono);color:var(--text-dim)"></span></div><div id="ringArea"></div></div>
+          <div class="psc"><div class="pst">Alertas activas <span id="alertSubtitle" style="font-size:12px;font-weight:400;font-family:var(--font-mono);color:var(--text-dim)"></span></div><div id="alertArea"></div></div>
+        </div>
+      </div>
+      <div id="db"></div>
+    </div>
+
+    <!-- HISTORICO -->
+    <div id="v-historico" class="view"><div id="hb"></div></div>
+
+    <!-- PERFIL -->
+    <div id="v-perfil" class="view">
+      <div class="pg">
+        <div class="pc">
+          <div class="pban"></div>
+          <div class="pav">🧑</div>
+          <div class="pb">
+            <div class="pn" id="pdn">Tu Nombre</div>
+            <div class="ps" id="pds">Perfil médico personal</div>
+            <div class="pf"><label>Nombre completo</label><input type="text" id="pNom" placeholder="Ej. Ana García López"></div>
+            <div class="pf"><label>Fecha de nacimiento</label><input type="date" id="pFec"></div>
+            <div class="pf"><label>Sexo biológico</label>
+              <select id="pSex"><option value="">Seleccionar...</option><option value="M">Masculino</option><option value="F">Femenino</option></select>
+            </div>
+            <div class="pf"><label>Grupo sanguíneo</label>
+              <select id="pGru"><option value="">Seleccionar...</option>
+                <option>A+</option><option>A-</option><option>B+</option><option>B-</option>
+                <option>AB+</option><option>AB-</option><option>O+</option><option>O-</option>
+              </select>
+            </div>
+            <div class="pf"><label>Médico de cabecera</label><input type="text" id="pMed" placeholder="Dr. ..."></div>
+            <div class="pf"><label>Alergias / Medicación</label><input type="text" id="pAle" placeholder="Ninguna conocida"></div>
+            <button class="btn-save" onclick="savePerfil()">Guardar perfil</button>
+            <button onclick="normalizeAllSaved()" style="width:100%;margin-top:8px;background:none;border:1px dashed var(--border2);color:var(--text-dim);border-radius:10px;padding:9px;font-family:var(--font-sans);font-size:12px;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--sea)';this.style.color='var(--sea)'" onmouseout="this.style.borderColor='var(--border2)';this.style.color='var(--text-dim)'">🔄 Re-normalizar parámetros</button>
+            <button onclick="deleteAllData()" style="width:100%;margin-top:12px;background:none;border:1px solid rgba(192,98,60,0.3);color:var(--terra);border-radius:10px;padding:9px;font-family:var(--font-sans);font-size:12px;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.background='var(--terra-dim)'" onmouseout="this.style.background='none'">🗑️ Eliminar todos los datos</button>
+          </div>
+        </div>
+        <div class="psp">
+          <div class="psc"><div class="pst">Resumen analíticas</div>
+            <div id="sumArea" style="font-family:var(--font-mono);font-size:12px;color:var(--text-dim);line-height:1.9"></div>
+          </div>
+          <div class="psc">
+            <div class="pst">Clave API (IA)</div>
+            <div style="font-size:11px;font-family:var(--font-mono);color:var(--text-dim);margin-bottom:12px;">Necesaria para procesar PDFs · Modelo: claude-haiku-4-5</div>
+            <input type="password" id="apiKey" placeholder="sk-ant-api-..." oninput="saveKey()"
+              style="width:100%;background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:10px 14px;color:var(--text);font-family:var(--font-mono);font-size:12px;outline:none;transition:border-color 0.2s;margin-bottom:6px;"
+              onfocus="this.style.borderColor='var(--sea)'" onblur="this.style.borderColor='var(--border)'">
+            <div id="keyStatus"></div>
+          </div>
+          <div class="psc">
+            <div class="pst">Exportar / Importar datos</div>
+            <div style="font-size:11px;font-family:var(--font-mono);color:var(--text-dim);margin-bottom:16px;">Los datos se guardan en el navegador. Exporta para hacer copia de seguridad e importa en otro dispositivo.</div>
+            <button onclick="exportData()" style="width:100%;background:var(--sea);color:#fff;border:none;border-radius:10px;padding:11px;font-family:var(--font-sans);font-size:13px;font-weight:600;cursor:pointer;margin-bottom:10px;transition:all 0.2s;box-shadow:0 3px 10px rgba(30,77,123,0.2);">⬇ Exportar todo como JSON</button>
+            <button onclick="document.getElementById('importInput').click()" style="width:100%;background:none;border:2px dashed var(--border2);color:var(--text-dim);border-radius:10px;padding:11px;font-family:var(--font-sans);font-size:13px;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--sea)';this.style.color='var(--sea)'" onmouseout="this.style.borderColor='var(--border2)';this.style.color='var(--text-dim)'">⬆ Importar JSON</button>
+            <input type="file" id="importInput" accept=".json" style="display:none" onchange="importData(event)">
+            <div id="importStatus" style="margin-top:8px;font-size:11px;font-family:var(--font-mono);"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- UPLOAD -->
+    <div id="v-upload" class="view">
+      <div class="dz" id="dz" ondragover="dov(event)" ondragleave="dlv()" ondrop="dop(event)" onclick="document.getElementById('fi').click()">
+        <div class="di">📄</div>
+        <div class="dt">Arrastra tu analítica en PDF</div>
+        <div class="ds">o haz clic para seleccionar · solo PDF · máx 10 MB</div>
+        <input type="file" id="fi" accept=".pdf" onchange="onFile(event)">
+      </div>
+      <div class="ul" id="ul"></div>
+    </div>
+
+  </div>
+</main>
+</div>
+
+<!-- PRINT MODAL -->
+<div class="modal-bg" id="printModal">
+  <div class="modal-box" style="max-width:520px">
+    <div class="modal-title">🖨️ Generar Informe PDF</div>
+    <div class="modal-sub">Selecciona qué analíticas incluir en el informe para tu médico</div>
+
+    <div style="margin-bottom:16px">
+      <div style="font-size:10px;font-family:var(--font-mono);color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;">Analíticas a incluir</div>
+      <div id="printYearsList" style="display:flex;flex-direction:column;gap:8px;max-height:240px;overflow-y:auto"></div>
+    </div>
+
+    <div style="border-top:1px solid var(--border);padding-top:14px;margin-bottom:16px">
+      <div style="font-size:10px;font-family:var(--font-mono);color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;">Secciones del informe</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+        <label style="display:flex;align-items:center;gap:8px;font-size:13px;cursor:pointer"><input type="checkbox" id="pIncResumen" checked style="accent-color:var(--sea)"> Resumen estado</label>
+        <label style="display:flex;align-items:center;gap:8px;font-size:13px;cursor:pointer"><input type="checkbox" id="pIncAlertas" checked style="accent-color:var(--sea)"> Alertas activas</label>
+        <label style="display:flex;align-items:center;gap:8px;font-size:13px;cursor:pointer"><input type="checkbox" id="pIncHistorico" checked style="accent-color:var(--sea)"> Tabla histórico</label>
+        <label style="display:flex;align-items:center;gap:8px;font-size:13px;cursor:pointer"><input type="checkbox" id="pIncPerfil" checked style="accent-color:var(--sea)"> Datos paciente</label>
+      </div>
+    </div>
+
+    <div class="modal-actions">
+      <button class="btn-modal-cancel" onclick="closePrintModal()">Cancelar</button>
+      <button class="btn-modal-ok" onclick="generatePrint()">🖨️ Generar e imprimir</button>
+    </div>
+  </div>
+</div>
+
+<!-- METADATA MODAL -->
+<div class="modal-bg" id="metaModal">
+  <div class="modal-box">
+    <div class="modal-title">Nueva Analítica</div>
+    <div class="modal-sub">Añade información antes de procesar el PDF</div>
+    <div class="modal-file">
+      <div class="modal-file-icon">📄</div>
+      <div>
+        <div class="modal-file-name" id="mfName">archivo.pdf</div>
+        <div class="modal-file-size" id="mfSize">—</div>
+      </div>
+    </div>
+    <div class="mf">
+      <label>Laboratorio</label>
+      <input type="text" id="mLab" placeholder="Ej. Synlab, Quirón, Análisis Clínicos...">
+    </div>
+    <div class="mf"><label>Tipo de analítica</label></div>
+    <div class="modal-tipo">
+      <div class="tipo-opt selected" id="tipo-personal" onclick="selectTipo('personal')">
+        <div class="tipo-icon">🧑</div>
+        <div class="tipo-label">Personal</div>
+        <div class="tipo-sub">Revisión propia</div>
+      </div>
+      <div class="tipo-opt" id="tipo-empresa" onclick="selectTipo('empresa')">
+        <div class="tipo-icon">🏢</div>
+        <div class="tipo-label">Empresa</div>
+        <div class="tipo-sub">Revisión laboral</div>
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn-modal-cancel" onclick="cancelModal()">Cancelar</button>
+      <button class="btn-modal-ok" onclick="confirmModal()">🔬 Analizar con IA</button>
+    </div>
+  </div>
+</div>
+
+<div class="overlay" id="ov">
+  <div class="ovbox">
+    <div class="wl"><div class="wb"></div><div class="wb"></div><div class="wb"></div><div class="wb"></div><div class="wb"></div></div>
+    <div class="ot">Analizando PDF</div>
+    <div class="os" id="om">Claude está extrayendo los valores...</div>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+/* ── STORE ─────────────────────────── */
+const KEY='meditrack_v2';
+function fmtDate(d){if(!d)return'—';const p=d.split('-');if(p.length!==3)return d;return`${p[2]}-${p[1]}-${p[0]}`;}
+let db={analyses:[],perfil:{}};
+function loadDB(){try{const r=localStorage.getItem(KEY);if(r)db=JSON.parse(r);}catch(e){}}
+function saveDB(){localStorage.setItem(KEY,JSON.stringify(db));}
+
+/* ── API KEY ───────────────────────── */
+function saveKey(){
+  const i=document.getElementById('apiKey');if(!i)return;
+  const k=i.value;
+  localStorage.setItem('mt_key',k);
+  const el=document.getElementById('keyStatus');if(!el)return;
+  if(!k){el.innerHTML='';return;}
+  el.innerHTML=k.startsWith('sk-ant-')?'<div style="color:#6b8f5e;font-size:11px;font-family:var(--font-mono);margin-top:4px;">✓ Key configurada</div>':'<div style="color:#c0623c;font-size:11px;font-family:var(--font-mono);margin-top:4px;">✗ Formato incorrecto</div>';
+}
+function loadKey(){const k=localStorage.getItem('mt_key')||'';const i=document.getElementById('apiKey');if(i){i.value=k;if(k)saveKey();}}
+function toggleKey(){const i=document.getElementById('apiKey');if(i)i.type=i.type==='password'?'text':'password';}
+function getKey(){return localStorage.getItem('mt_key')||'';}
+
+/* ── NAV ───────────────────────────── */
+const pm={dashboard:{t:'Dashboard',s:'Vista general de tus analíticas'},historico:{t:'Histórico Analíticas',s:'Todos tus resultados por fecha'},perfil:{t:'Perfil',s:'Datos personales y estado de salud'},upload:{t:'Subir Analítica',s:'Añade un PDF al historial'}};
+function go(id){
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
+  document.getElementById('v-'+id).classList.add('active');
+  document.querySelectorAll('.nav-item').forEach(n=>{if(n.getAttribute('onclick')?.includes(`'${id}'`))n.classList.add('active');});
+  // Mobile nav active state
+  document.querySelectorAll('.mobile-nav-item').forEach(b=>b.classList.remove('active'));
+  const mnav=document.getElementById('mnav-'+id);
+  if(mnav)mnav.classList.add('active');
+  // Mobile topbar actions: only on dashboard
+  const ma=document.getElementById('mobileActions');
+  if(ma)ma.style.display=id==='dashboard'?'flex':'none';;
+  document.getElementById('pt').textContent=pm[id].t;
+  document.getElementById('ps').textContent=pm[id].s;
+  if(id==='dashboard')renderDash();
+  if(id==='historico')renderHist();
+  if(id==='perfil')   {renderPerfil();setTimeout(loadKey,50);}
+  if(id==='upload')renderUL();
+  // Show topbar actions only on Dashboard
+  const ta=document.getElementById('topbarActions');
+  if(ta)ta.style.display=id==='dashboard'?'flex':'none';
+}
+
+/* ── TOAST ─────────────────────────── */
+function toast(m,t='ok'){const el=document.getElementById('toast');el.textContent=m;el.className=`toast show ${t}`;setTimeout(()=>el.className='toast',3800);}
+
+/* ── PARAM NORMALIZATION ──────────── */
+const PARAM_MAP={
+  // ── LÍPIDOS ──────────────────────────────────────────
+  'colesterol total suero':'Colesterol total',
+  'colesterol total':'Colesterol total',
+  'triglicéridos suero':'Triglicéridos',
+  'trigliceridos suero':'Triglicéridos',
+  'triglicéridos':'Triglicéridos',
+  'trigliceridos':'Triglicéridos',
+  'hdl colesterol suero':'Colesterol HDL',
+  'hdl colesterol':'Colesterol HDL',
+  'colesterol hdl suero':'Colesterol HDL',
+  'colesterol hdl':'Colesterol HDL',
+  'ldl colesterol suero':'Colesterol LDL',
+  'colesterol ldl suero':'Colesterol LDL',
+  'colesterol ldl (formula de friedewald)':'Colesterol LDL',
+  'colesterol ldl':'Colesterol LDL',
+  'colesterol no hdl suero':'Colesterol no HDL',
+  'colesterol no hdl':'Colesterol no HDL',
+
+  // ── BIOQUÍMICA ────────────────────────────────────────
+  'glucosa plasma':'Glucosa',
+  'glucosa (suero/plasma)':'Glucosa',
+  'glucosa suero':'Glucosa',
+  'glucosa suero/plasma':'Glucosa',
+  'glucosa':'Glucosa',
+  'creatinina suero':'Creatinina',
+  'creatinina':'Creatinina',
+  'ácido úrico suero':'Ácido úrico',
+  'acido urico suero':'Ácido úrico',
+  'ácido úrico':'Ácido úrico',
+  'acido urico':'Ácido úrico',
+  'urato':'Ácido úrico',
+  'urea':'Urea',
+  'ast (got) suero':'AST (GOT)',
+  'aspartato aminotransferasa (ast/got)':'AST (GOT)',
+  'ast':'AST (GOT)',
+  'alt (gpt) suero':'ALT (GPT)',
+  'alanina aminotransferasa (alt/gpt)':'ALT (GPT)',
+  'alt':'ALT (GPT)',
+  'gamma-gt suero':'Gamma-GT',
+  'gamma-glutamil transferasa (ggt)':'Gamma-GT',
+  'gamma-gt':'Gamma-GT',
+  'ggt':'Gamma-GT',
+  'filtrado glomerular ckd-epi':'Filtrado glomerular',
+  'filtrado glomerular estimado (ckd-epi)':'Filtrado glomerular',
+  'filtrado glomerular (ckd-epi creatinina)':'Filtrado glomerular',
+  'fosfatasa alcalina (alp)':'Fosfatasa alcalina',
+  'fosfatasa alcalina':'Fosfatasa alcalina',
+  'bilirrubina total':'Bilirrubina total',
+  'bilirrubina total suero':'Bilirrubina total',
+  'sodio':'Sodio',
+  'potasio':'Potasio',
+  'cloruro':'Cloruro',
+  'calcio total':'Calcio total',
+  'proteínas totales':'Proteínas totales',
+  'proteinas totales':'Proteínas totales',
+  'creatina quinasa (ck)':'Creatina quinasa',
+  'amilasa':'Amilasa',
+  'lipasa':'Lipasa',
+
+  // ── HEMATOLOGÍA — Serie roja ──────────────────────────
+  'hematíes':'Hematíes',
+  'hematies':'Hematíes',
+  'hemoglobina':'Hemoglobina',
+  'hematocrito':'Hematocrito',
+  'vcm':'VCM',
+  'volumen corpuscular medio (vcm)':'VCM',
+  'volumen corpuscular medio':'VCM',
+  'hcm':'HCM',
+  'hemoglobina corpuscular media (hcm)':'HCM',
+  'hemoglobina corpuscular media':'HCM',
+  'chcm':'CHCM',
+  'conc. de hgb. corpuscular media (chcm)':'CHCM',
+  'rdw':'RDW',
+  'indice de anisocitosis (rdw)':'RDW',
+
+  // ── HEMATOLOGÍA — Leucocitos ──────────────────────────
+  'leucocitos':'Leucocitos',
+
+  // Neutrófilos: absoluto vs porcentaje
+  'neutrófilos (v. absoluto)':'Neutrófilos (abs)',
+  'neutrofilos (v. absoluto)':'Neutrófilos (abs)',
+  'neutrófilos absolutos':'Neutrófilos (abs)',
+  'neutrofilos absolutos':'Neutrófilos (abs)',
+  'neutrófilos':'Neutrófilos (abs)',
+  'neutrofilos':'Neutrófilos (abs)',
+  '% neutrófilos':'Neutrófilos (%)',
+  '% neutrofilos':'Neutrófilos (%)',
+  'neutrófilos %':'Neutrófilos (%)',
+  'neutrofilos %':'Neutrófilos (%)',
+  'neutrófilos porcentaje':'Neutrófilos (%)',
+
+  // Linfocitos
+  'linfocitos (v. absoluto)':'Linfocitos (abs)',
+  'linfocitos absolutos':'Linfocitos (abs)',
+  'linfocitos':'Linfocitos (abs)',
+  '% linfocitos':'Linfocitos (%)',
+  'linfocitos %':'Linfocitos (%)',
+  'linfocitos porcentaje':'Linfocitos (%)',
+
+  // Monocitos
+  'monocitos (v. absoluto)':'Monocitos (abs)',
+  'monocitos absolutos':'Monocitos (abs)',
+  'monocitos':'Monocitos (abs)',
+  '% monocitos':'Monocitos (%)',
+  'monocitos %':'Monocitos (%)',
+  'monocitos porcentaje':'Monocitos (%)',
+
+  // Eosinófilos
+  'eosinófilos (v. absoluto)':'Eosinófilos (abs)',
+  'eosinofilos (v. absoluto)':'Eosinófilos (abs)',
+  'eosinófilos absolutos':'Eosinófilos (abs)',
+  'eosinofilos absolutos':'Eosinófilos (abs)',
+  'eosinófilos':'Eosinófilos (abs)',
+  'eosinofilos':'Eosinófilos (abs)',
+  '% eosinófilos':'Eosinófilos (%)',
+  '% eosinofilos':'Eosinófilos (%)',
+  'eosinófilos %':'Eosinófilos (%)',
+  'eosinófilos porcentaje':'Eosinófilos (%)',
+
+  // Basófilos
+  'basófilos (v. absoluto)':'Basófilos (abs)',
+  'basofilos (v. absoluto)':'Basófilos (abs)',
+  'basófilos absolutos':'Basófilos (abs)',
+  'basofilos absolutos':'Basófilos (abs)',
+  'basófilos':'Basófilos (abs)',
+  'basofilos':'Basófilos (abs)',
+  '% basófilos':'Basófilos (%)',
+  '% basofilos':'Basófilos (%)',
+  'basófilos %':'Basófilos (%)',
+  'basófilos porcentaje':'Basófilos (%)',
+
+  // ── HEMATOLOGÍA — Serie plaquetaria ──────────────────
+  'plaquetas':'Plaquetas',
+  'vpm':'VPM',
+  'volumen plaquetar medio (vpm)':'VPM',
+  'volumen plaquetario medio (vpm)':'VPM',
+  'volumen plaquetar medio':'VPM',
+  'volumen plaquetario medio':'VPM',
+
+  // VSG
+  'vsg 1ª hora':'VSG',
+  'eritrosedimentación 1ª hora':'VSG',
+  'eritrosedimentacion 1a hora':'VSG',
+
+  // ── COAGULACIÓN ───────────────────────────────────────
+  'tiempo de protrombina':'Tiempo de protrombina',
+  'actividad de protrombina':'Actividad de protrombina',
+  'inr (ratio internacional normalizado t.protrombina)':'INR',
+  'inr':'INR',
+  'tiempo de tromboplastina parcial (ptt)':'PTT',
+  'tiempo de tromboplastina parcial activado (aptt)':'PTT',
+  'ratio de ptt':'Ratio PTT',
+  'ratio de cefalina (aptt)':'Ratio PTT',
+
+  // ── HORMONAS ──────────────────────────────────────────
+  'hormona estimulante del tiroides (tsh)':'TSH',
+  'tsh':'TSH',
+  'tiroxina libre (t4l)':'T4 libre',
+  'resistencia insulínica':'Resistencia insulínica',
+  'hemoglobina a1c (ngsp) por hplc':'HbA1c',
+  'hemoglobina a1c (ifcc) por hplc':'HbA1c (IFCC)',
+  'psa (antígeno prostático específico)':'PSA',
+
+  // ── INMUNOLOGÍA ───────────────────────────────────────
+  'inmunoglobulina e':'Inmunoglobulina E (IgE)',
+  'dermatophagoides pteronyssinus (d1)':'IgE Ácaros D.pteronyssinus',
+  'dermatophagoides farinae(d2)':'IgE Ácaros D.farinae',
+  'caspa de gato (e1)':'IgE Caspa de gato',
+
+  // ── METABOLISMO ───────────────────────────────────────
+  'índice de hígado graso':'Índice hígado graso',
+  'indice de higado graso':'Índice hígado graso',
+  'cociente albúmina/globulinas':'Cociente albúmina/globulinas',
+};
+
+function normalizeParam(name){
+  const key=name.toLowerCase().trim()
+    .replace(/[‡✓]/g,'').trim()
+    .replace(/\s+/g,' ');
+  return PARAM_MAP[key]||name;
+}
+
+function normalizeAnalysis(analysis){
+  if(!analysis.values)return analysis;
+  // Normalize names and deduplicate (keep last occurrence per canonical name)
+  const seen=new Map();
+  analysis.values.forEach(v=>{
+    const canonical=normalizeParam(v.name);
+    seen.set(canonical,{...v,name:canonical});
+  });
+  analysis.values=[...seen.values()];
+  return analysis;
+}
+
+/* ── FILE ──────────────────────────── */
+function dov(e){e.preventDefault();document.getElementById('dz').classList.add('over');}
+function dlv(){document.getElementById('dz').classList.remove('over');}
+function dop(e){e.preventDefault();dlv();const f=e.dataTransfer.files[0];if(f?.type==='application/pdf')openModal(f);else toast('Solo PDF','err');}
+function onFile(e){const f=e.target.files[0];if(f)openModal(f);e.target.value='';}
+
+/* ── METADATA MODAL ────────────────── */
+let _pendingFile=null;
+let _selectedTipo='personal';
+
+function openModal(file){
+  const k=getKey();
+  if(!k||!k.startsWith('sk-ant-')){toast('Configura tu API Key en Perfil','err');return;}
+  _pendingFile=file;
+  _selectedTipo='personal';
+  document.getElementById('mfName').textContent=file.name;
+  document.getElementById('mfSize').textContent=(file.size/1024).toFixed(0)+' KB · PDF';
+  document.getElementById('mLab').value='';
+  selectTipo('personal');
+  document.getElementById('metaModal').classList.add('on');
+}
+
+function cancelModal(){
+  document.getElementById('metaModal').classList.remove('on');
+  _pendingFile=null;
+}
+
+function selectTipo(t){
+  _selectedTipo=t;
+  document.getElementById('tipo-personal').classList.toggle('selected',t==='personal');
+  document.getElementById('tipo-empresa').classList.toggle('selected',t==='empresa');
+}
+
+async function confirmModal(){
+  const lab=document.getElementById('mLab').value.trim()||'Sin especificar';
+  document.getElementById('metaModal').classList.remove('on');
+  if(!_pendingFile)return;
+  await processFile(_pendingFile,lab,_selectedTipo);
+  _pendingFile=null;
+}
+
+async function processFile(file,lab,tipo){
+  const k=getKey();
+  showOv(true,'Leyendo el PDF...');
+  try{
+    const b64=await toB64(file);
+    showOv(true,'Claude está extrayendo los valores...');
+    const r=await callClaude(b64,k);
+    const newAnalysis=normalizeAnalysis({
+      id:Date.now(), file:file.name,
+      date:r.date||today(),
+      uploadedAt:new Date().toISOString(),
+      lab:lab, tipo:tipo,
+      values:r.values, summary:r.summary
+    });
+    db.analyses.push(newAnalysis);
+    saveDB();showOv(false);
+    toast(`✓ ${r.values?.length||0} parámetros extraídos · ${lab}`);
+    renderUL();
+  }catch(err){showOv(false);toast('Error: '+err.message,'err');console.error(err);}
+}
+
+function toB64(file){return new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(r.result.split(',')[1]);r.onerror=()=>rej(new Error('Error'));r.readAsDataURL(file);});}
+
+async function callClaude(b64,apiKey){
+  const prompt=`Eres un especialista en análisis clínicos. Analiza este PDF de analítica médica.
+
+REGLA ABSOLUTA: Responde SOLO con JSON puro. Sin palabras extra. Sin markdown. Sin bloques de código. Empieza con { y termina con }.
+
+Extrae TODOS los parámetros con valor numérico real. OMITE: resultados "NEGATIVO", "DNR Ver comentario", textos descriptivos sin número.
+- Convierte comas a puntos decimales: 4,75 → 4.75
+- Para ">90" usa 90, para "<0,1" usa 0.05
+- Para "(Inf. 200)": refMin=null, refMax=200. Para "(Sup. 55)": refMin=55, refMax=null
+- Para rangos "(4.1 - 5.75)": refMin=4.1, refMax=5.75
+
+Formato JSON (sin variaciones):
+{"date":"YYYY-MM-DD","summary":"estado general en 1 frase","values":[{"name":"Nombre completo del parámetro","shortName":"Abrev","value":4.75,"unit":"unidad","refMin":4.1,"refMax":5.75,"category":"Hematología","status":"normal"}]}
+
+Categorías exactas: Hematología, Bioquímica, Lípidos, Hormonas, Coagulación, Orina, Inmunología, Otros
+Status: normal/high/low según si está dentro, por encima o por debajo del rango de referencia.`;
+
+  const resp=await fetch('https://api.anthropic.com/v1/messages',{
+    method:'POST',
+    headers:{'Content-Type':'application/json','x-api-key':apiKey,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
+    body:JSON.stringify({model:'claude-haiku-4-5-20251001',max_tokens:8000,messages:[{role:'user',content:[{type:'document',source:{type:'base64',media_type:'application/pdf',data:b64}},{type:'text',text:prompt}]}]})
+  });
+  if(!resp.ok){const e=await resp.json();throw new Error(e.error?.message||`HTTP ${resp.status}`);}
+  const data=await resp.json();
+  const raw=data.content.find(c=>c.type==='text')?.text||'';
+  console.log('Claude raw response (first 500):', raw.slice(0,500));
+
+  // Robust JSON extraction
+  let clean=raw.replace(/```json\s*/gi,'').replace(/```\s*/g,'').trim();
+  try{return JSON.parse(clean);}catch(_){}
+  const s=clean.indexOf('{'), e2=clean.lastIndexOf('}');
+  if(s!==-1&&e2>s){try{return JSON.parse(clean.slice(s,e2+1));}catch(_){}}
+  // Try to fix truncated JSON
+  try{
+    let partial=s!==-1?clean.slice(s):clean;
+    let ob=0,ob2=0;
+    for(const c of partial){if(c==='{')ob++;else if(c==='}')ob--;else if(c==='[')ob2++;else if(c===']')ob2--;}
+    while(ob2>0){partial+=']';ob2--;}
+    while(ob>0){partial+='}';ob--;}
+    return JSON.parse(partial);
+  }catch(err){
+    throw new Error('No se pudo parsear JSON. Ver consola F12 para debug.');
+  }
+}
+
+function showOv(on,msg=''){document.getElementById('ov').classList.toggle('on',on);if(msg)document.getElementById('om').textContent=msg;}
+function today(){return new Date().toISOString().split('T')[0];}
+
+/* ── UPLOAD VIEW ───────────────────── */
+function renderUL(){
+  const el=document.getElementById('ul');
+  if(!db.analyses.length){el.innerHTML='<div style="text-align:center;padding:40px;color:var(--text-muted);font-family:var(--font-mono);font-size:12px;">Sin analíticas subidas todavía</div>';return;}
+  el.innerHTML=[...db.analyses].reverse().map(a=>`
+    <div class="ur" id="row-${a.id}">
+      <div style="font-size:26px">${a.tipo==='empresa'?'🏢':'🧑'}</div>
+      <div class="ui">
+        <div class="un">${a.file}</div>
+        <div class="um" id="meta-${a.id}">${fmtDate(a.date)} · ${a.lab||'Sin laboratorio'} · ${a.tipo==='empresa'?'Revisión empresa':'Personal'} · ${a.values?.length||0} parámetros</div>
+        <div id="edit-${a.id}" style="display:none;margin-top:10px;display:none">
+          <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+            <input id="elab-${a.id}" value="${(a.lab||'').replace(/"/g,'&quot;')}" placeholder="Laboratorio"
+              style="background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:7px 12px;font-family:var(--font-mono);font-size:12px;color:var(--text);outline:none;flex:1;min-width:140px;">
+            <select id="etipo-${a.id}"
+              style="background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:7px 12px;font-family:var(--font-sans);font-size:12px;color:var(--text);outline:none;">
+              <option value="personal" ${a.tipo!=='empresa'?'selected':''}>🧑 Personal</option>
+              <option value="empresa" ${a.tipo==='empresa'?'selected':''}>🏢 Empresa</option>
+            </select>
+            <button onclick="saveEdit(${a.id})" style="background:var(--sea);color:#fff;border:none;border-radius:8px;padding:7px 14px;font-size:12px;font-family:var(--font-sans);font-weight:600;cursor:pointer;">Guardar</button>
+            <button onclick="cancelEdit(${a.id})" style="background:none;border:1px solid var(--border2);color:var(--text-dim);border-radius:8px;padding:7px 14px;font-size:12px;font-family:var(--font-sans);cursor:pointer;">Cancelar</button>
+          </div>
+        </div>
+      </div>
+      <button class="bdel" style="margin-right:4px" onclick="startEdit(${a.id})">✏️ Editar</button>
+      <button class="bdel" onclick="del(${a.id})">Eliminar</button>
+    </div>`).join('');
+}
+
+function startEdit(id){
+  document.getElementById('edit-'+id).style.display='block';
+  document.getElementById('meta-'+id).style.display='none';
+}
+function cancelEdit(id){
+  document.getElementById('edit-'+id).style.display='none';
+  document.getElementById('meta-'+id).style.display='block';
+}
+function saveEdit(id){
+  const a=db.analyses.find(x=>x.id===id);if(!a)return;
+  a.lab=document.getElementById('elab-'+id).value.trim();
+  a.tipo=document.getElementById('etipo-'+id).value;
+  saveDB();renderUL();toast('✓ Analítica actualizada');
+}
+function del(id){if(!confirm('¿Eliminar esta analítica?'))return;db.analyses=db.analyses.filter(a=>a.id!==id);saveDB();renderUL();toast('Eliminada');}
+
+/* ── DASHBOARD ─────────────────────── */
+function renderDash(){
+  const el=document.getElementById('db');
+  if(!db.analyses.length){el.innerHTML=`<div class="empty"><div class="ei">🌊</div><div class="et">Sin analíticas todavía</div><div class="es">Sube tu primer PDF para ver el dashboard</div></div>`;return;}
+  const lat=sortedByDate()[0];
+  const vals=lat.values||[];
+  const n=vals.filter(v=>v.status==='normal').length,h=vals.filter(v=>v.status==='high').length,l=vals.filter(v=>v.status==='low').length;
+  let html=`<div class="pills">
+    <div class="pill"><div class="pd" style="background:var(--olive)"></div>${n} normales</div>
+    <div class="pill"><div class="pd" style="background:var(--terra)"></div>${h} altos</div>
+    <div class="pill"><div class="pd" style="background:var(--amber)"></div>${l} bajos</div>
+    <div class="pill">📋 ${db.analyses.length} analítica${db.analyses.length!==1?'s':''}</div>
+    <div class="pill">📅 Última: ${fmtDate(lat.date)}</div>
+  </div>`;
+  const kk=['Glucosa','Colesterol total','Triglicéridos','Hemoglobina','Creatinina','Leucocitos'];
+  const kv=kk.map(n=>vals.find(v=>v.name.toLowerCase().includes(n.toLowerCase()))).filter(Boolean);
+  if(kv.length){
+    html+=`<div class="sec">Parámetros clave</div><div class="stats-grid">`;
+    kv.forEach(v=>{const c=v.status==='high'?'hi':v.status==='low'?'lo':'ok';const tr=getTrend(v.name);
+      html+=`<div class="stat-card ${c}"><div class="slbl">${v.name}</div><div class="sval ${c}">${v.value}</div><div class="sunit">${v.unit||''}</div>${tr?`<div class="strend ${tr.c}">${tr.i} ${tr.t}</div>`:''}</div>`;});
+    html+=`</div>`;
+  }
+  // Evolution by clinical groups
+  const groups=getBiosByGroup();
+  if(groups.length){
+    html+=`<div class="sec" style="margin-top:32px">Evolución temporal</div>`;
+    groups.forEach(g=>{
+      const hasAny=g.bios.length>0;
+      if(!hasAny)return;
+      html+=`<div class="sec evo-sec">${g.label}</div><div class="evo-grid">`;
+      g.bios.forEach(b=>{
+        const c=b.status==='high'?'hi':b.status==='low'?'lo':'ok';
+        const st=b.status==='high'?'Alto':b.status==='low'?'Bajo':'Normal';
+        const bc=b.status==='high'?'b-hi':b.status==='low'?'b-lo':'b-ok';
+        // Trend arrow
+        let trendHtml='';
+        if(b.values.length>1){
+          const diff=b.values.at(-1)-b.values.at(-2);
+          const pct=Math.abs((diff/b.values.at(-2))*100).toFixed(1);
+          if(Math.abs(diff)>0.001){
+            const tCls=diff>0?'t-up':'t-dn';
+            trendHtml=`<span class="strend ${tCls}" style="font-size:11px;margin-left:6px">${diff>0?'▲':'▼'} ${pct}%</span>`;
+          }
+        }
+        const refHtml=b.refMin!=null||b.refMax!=null
+          ?`<div style="font-size:10px;font-family:var(--font-mono);color:var(--text-muted);margin-top:2px">Ref: ${b.refMin!=null?b.refMin:''}${b.refMin!=null&&b.refMax!=null?'–':''}${b.refMax!=null?b.refMax:''} ${b.unit||''}</div>`:'';
+        const noDataHtml=b.values.length<2
+          ?`<div style="font-size:10px;font-family:var(--font-mono);color:var(--text-muted);margin-top:4px">Solo 1 medición</div>`:'';
+        html+=`<div class="evo-card ${b.status==='normal'?'':'evo-card-alert'}">
+          <div class="chead">
+            <div style="flex:1">
+              <div class="cname">${b.name}</div>
+              ${refHtml}
+            </div>
+            <div style="text-align:right">
+              <div style="display:flex;align-items:baseline;gap:4px;justify-content:flex-end">
+                <div class="cval ${c}">${b.lastVal}</div>
+                <div class="cunit" style="margin-top:0">${b.unit||''}</div>
+              </div>
+              <div style="display:flex;align-items:center;justify-content:flex-end;gap:4px">
+                <span class="sbadge ${bc}">${st}</span>${trendHtml}
+              </div>
+              ${noDataHtml}
+            </div>
+          </div>
+          <div class="cwrap" style="height:90px"><canvas id="ch-${b.key}"></canvas></div>
+        </div>`;
+      });
+      html+=`</div>`;
+    });
+  }
+  el.innerHTML=html;
+  // Render all charts
+  groups.forEach(g=>g.bios.forEach(b=>miniChart('ch-'+b.key,b.dates,b.values,b.status,b.refMin,b.refMax)));
+
+  // Health ring + alerts on dashboard
+  const allVals2=sortedByDate()[0]?.values||[];
+  const n2=allVals2.filter(v=>v.status==='normal').length,h2=allVals2.filter(v=>v.status==='high').length,l2=allVals2.filter(v=>v.status==='low').length,tot2=allVals2.length||1;
+  const pct2=Math.round(n2/tot2*100);
+  const ra=document.getElementById('ringArea');
+  const aa=document.getElementById('alertArea');
+  const hr=document.getElementById('dashHealthRow');
+  if(ra&&allVals2.length){
+    hr.style.display='block';
+    const latAnalysis=sortedByDate()[0];
+    const dld=document.getElementById('dashLatDate');
+    if(dld)dld.textContent=fmtDate(latAnalysis?.date||'');
+    const ast=document.getElementById('alertSubtitle');
+    if(ast)ast.textContent=`· ${latAnalysis?.lab||''} ${fmtDate(latAnalysis?.date||'')}`;
+    ra.innerHTML=`<div class="hring"><div class="rc"><canvas id="rc2" width="100" height="100"></canvas><div class="rl"><div class="rpct">${pct2}%</div><div class="rsub">Normal</div></div></div><div class="rleg"><div class="rrow"><div class="rdot" style="background:var(--olive)"></div>${n2} normales</div><div class="rrow"><div class="rdot" style="background:var(--terra)"></div>${h2} altos</div><div class="rrow"><div class="rdot" style="background:var(--amber)"></div>${l2} bajos</div></div></div>`;
+    setTimeout(()=>drawRing2(n2,h2,l2),50);
+    const ab2=allVals2.filter(v=>v.status!=='normal').slice(0,8);
+    aa.innerHTML=ab2.length?ab2.map(v=>`<div class="ait ${v.status==='high'?'hi':'lo'}"><span>${v.status==='high'?'⬆️':'⬇️'}</span><span style="flex:1">${v.name}</span><span class="av">${v.value} ${v.unit||''}</span></div>`).join(''):`<div class="ait ok"><span>✅</span><span style="flex:1">Todos los parámetros en rango normal</span></div>`;
+  }
+}
+
+function drawRing2(n,h,l){const c=document.getElementById('rc2');if(!c)return;const tot=n+h+l||1;const data=[n/tot,h/tot,l/tot];const cols=['#6b7c3e','#c0623c','#d4933a'];const ctx=c.getContext('2d');let st=-Math.PI/2;data.forEach((v,i)=>{if(!v)return;ctx.beginPath();ctx.moveTo(50,50);ctx.arc(50,50,44,st,st+Math.PI*2*v);ctx.closePath();ctx.fillStyle=cols[i];ctx.fill();st+=Math.PI*2*v;});ctx.beginPath();ctx.arc(50,50,30,0,Math.PI*2);ctx.fillStyle='#faf7f2';ctx.fill();}
+
+/* ── HISTORICO (matriz parámetros × fechas) ─ */
+function renderHist(){
+  const el=document.getElementById('hb');
+  if(!db.analyses.length){
+    el.innerHTML=`<div class="empty"><div class="ei">📋</div><div class="et">Sin historial</div><div class="es">Sube analíticas para ver el historial comparativo</div></div>`;
+    return;
+  }
+
+  // Sort dates chronological
+  const sorted=[...db.analyses].sort((a,b)=>new Date(a.date)-new Date(b.date));
+  const dates=sorted.map(a=>a.date);
+
+  // Collect all unique params grouped by category
+  const catMap=new Map();
+  const paramMeta=new Map();
+  sorted.forEach(a=>{
+    (a.values||[]).forEach(v=>{
+      const nm=normalizeParam(v.name);
+      if(!paramMeta.has(nm)){
+        paramMeta.set(nm,{unit:v.unit,refMin:v.refMin,refMax:v.refMax,category:v.category||'Otros'});
+      }
+      const cat=v.category||'Otros';
+      if(!catMap.has(cat))catMap.set(cat,[]);
+      if(!catMap.get(cat).includes(nm))catMap.get(cat).push(nm);
+    });
+  });
+
+  const catOrder=['Hematología','Bioquímica','Lípidos','Hormonas','Coagulación','Inmunología','Orina','Otros'];
+  const sortedCats=[...catOrder.filter(c=>catMap.has(c)),...[...catMap.keys()].filter(c=>!catOrder.includes(c))];
+
+  // Build lookup: date → name → value obj
+  const lookup=new Map();
+  sorted.forEach(a=>{
+    const m=new Map();
+    (a.values||[]).forEach(v=>m.set(normalizeParam(v.name),v));
+    lookup.set(a.date,m);
+  });
+
+  let html='';
+
+  sortedCats.forEach(cat=>{
+    const params=catMap.get(cat);
+    html+=`<div class="sec" style="margin-top:28px">${cat}</div>
+    <div class="twrap" style="margin-bottom:28px;overflow-x:auto">
+    <table class="htbl" style="min-width:600px">
+      <thead><tr>
+        <th class="col-param">Parámetro</th>
+        <th class="col-unit">Unidad</th>
+        <th class="col-ref" style="color:var(--text-muted)">Referencia</th>
+        ${dates.map((d,i)=>{const a=sorted[i];return `<th class="col-date" style="color:var(--sea);text-align:left">${fmtDate(d)}<br><span style="font-size:9px;color:var(--text-muted);font-weight:400">${a.lab||''}</span></th>`;}).join('')}
+      </tr></thead>
+      <tbody>`;
+
+    params.forEach(name=>{
+      const meta=paramMeta.get(name)||{};
+      const refTxt=meta.refMin!=null&&meta.refMax!=null?`${meta.refMin}–${meta.refMax}`:meta.refMin!=null?`>${meta.refMin}`:meta.refMax!=null?`<${meta.refMax}`:'';
+
+      html+=`<tr>
+        <td class="tn">${name}</td>
+        <td class="tref">${meta.unit||''}</td>
+        <td class="tref">${refTxt}</td>`;
+
+      dates.forEach((d,di)=>{
+        const v=lookup.get(d)?.get(name);
+        if(!v){html+=`<td class="col-date" style="color:var(--text-muted)">—</td>`;return;}
+
+        const colorCls=v.status==='high'?'thi':v.status==='low'?'tlo':'tok';
+        let arrow='';
+        if(di>0){
+          const prev=lookup.get(dates[di-1])?.get(name);
+          if(prev&&prev.value!=null&&v.value!=null){
+            const d2=parseFloat(v.value)-parseFloat(prev.value);
+            if(Math.abs(d2)>0.001)arrow=`<span style="font-size:9px;margin-left:3px">${d2>0?'▲':'▼'}</span>`;
+          }
+        }
+        html+=`<td class="${colorCls} col-date" style="text-align:left;font-weight:600">${v.value}${arrow}</td>`;
+      });
+
+      html+=`</tr>`;
+    });
+
+    html+=`</tbody></table></div>`;
+  });
+
+  el.innerHTML=html;
+}
+
+/* ── PERFIL ────────────────────────── */
+function loadPerfilInputs(){const p=db.perfil||{};document.getElementById('pNom').value=p.nombre||'';document.getElementById('pFec').value=p.fecha||'';document.getElementById('pSex').value=p.sexo||'';document.getElementById('pGru').value=p.grupo||'';document.getElementById('pMed').value=p.medico||'';document.getElementById('pAle').value=p.alergias||'';}
+function savePerfil(){db.perfil={nombre:document.getElementById('pNom').value,fecha:document.getElementById('pFec').value,sexo:document.getElementById('pSex').value,grupo:document.getElementById('pGru').value,medico:document.getElementById('pMed').value,alergias:document.getElementById('pAle').value};saveDB();renderPerfil();toast('Perfil guardado');}
+function renderPerfil(){
+  loadPerfilInputs();const p=db.perfil||{};
+  document.getElementById('pdn').textContent=p.nombre||'Tu Nombre';
+  let sub='Perfil médico personal';if(p.fecha){const d=new Date(p.fecha);const a=new Date().getFullYear()-d.getFullYear();sub=`${a} años`;}if(p.grupo)sub+=' · Grupo '+p.grupo;
+  document.getElementById('pds').textContent=sub;
+  const vals=db.analyses.length?sortedByDate()[0].values||[]:[];
+  const n=vals.filter(v=>v.status==='normal').length,h=vals.filter(v=>v.status==='high').length,l=vals.filter(v=>v.status==='low').length,tot=vals.length||1;
+  const pct=Math.round(n/tot*100);
+  // Ring and alerts now rendered in Dashboard
+  const sa=document.getElementById('sumArea');
+  if(!db.analyses.length)sa.textContent='Sin analíticas registradas';
+  else{const s=sortedByDate();sa.innerHTML=`Total analíticas: <strong>${db.analyses.length}</strong><br>Primera: <strong>${s.at(-1).date}</strong><br>Última: <strong>${s[0].date}</strong><br>Parámetros monitorizados: <strong>${getBios(999).length}</strong>`;}
+}
+function drawRing(n,h,l){const c=document.getElementById('rc');if(!c)return;const tot=n+h+l||1;const data=[n/tot,h/tot,l/tot];const cols=['#6b7c3e','#c0623c','#d4933a'];const ctx=c.getContext('2d');let st=-Math.PI/2;data.forEach((v,i)=>{if(!v)return;ctx.beginPath();ctx.moveTo(50,50);ctx.arc(50,50,44,st,st+Math.PI*2*v);ctx.closePath();ctx.fillStyle=cols[i];ctx.fill();st+=Math.PI*2*v;});ctx.beginPath();ctx.arc(50,50,30,0,Math.PI*2);ctx.fillStyle='#faf7f2';ctx.fill();}
+
+/* ── CHART ─────────────────────────── */
+function miniChart(id,labels,data,status,refMin,refMax){
+  const ctx=document.getElementById(id);if(!ctx)return;
+  const col=status==='high'?'#c0623c':status==='low'?'#d4933a':'#6b7c3e';
+  const datasets=[{
+    data,borderColor:col,backgroundColor:col+'18',
+    borderWidth:2,pointRadius:data.length===1?5:3,
+    pointBackgroundColor:col,pointBorderColor:'#faf7f2',pointBorderWidth:1.5,
+    tension:data.length>2?0.4:0,fill:true,
+    segment:{borderColor:ctx2=>{
+      const v=ctx2.p1.parsed.y;
+      if(refMax!=null&&v>refMax)return'#c0623c';
+      if(refMin!=null&&v<refMin)return'#d4933a';
+      return col;
+    }}
+  }];
+  // Reference band annotation (manual - add a fill dataset)
+  const allVals=[...data];
+  if(refMin!=null)allVals.push(refMin);
+  if(refMax!=null)allVals.push(refMax);
+  const yMin=Math.min(...allVals)*0.95;
+  const yMax=Math.max(...allVals)*1.05;
+
+  new Chart(ctx,{
+    type:'line',
+    data:{labels,datasets},
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      animation:{duration:400},
+      plugins:{
+        legend:{display:false},
+        tooltip:{
+          backgroundColor:'#faf7f2',borderColor:'#ddd3c4',borderWidth:1,
+          titleColor:'#7a6b58',bodyColor:'#2c2417',
+          titleFont:{family:'DM Mono',size:10},bodyFont:{family:'DM Mono',size:12},
+          callbacks:{
+            title:i=>fmtDate(labels[i[0].dataIndex]),
+            label:c=>' '+c.parsed.y
+          }
+        },
+        annotation:{} // placeholder
+      },
+      scales:{
+        x:{display:labels.length>1,grid:{display:false},border:{display:false},
+          ticks:{color:'#b5a592',font:{family:'DM Mono',size:9},maxTicksLimit:4}},
+        y:{
+          display:true,
+          min:yMin,max:yMax,
+          grid:{color:'#ece4d8',lineWidth:1},
+          border:{display:false},
+          ticks:{color:'#b5a592',font:{family:'DM Mono',size:9},maxTicksLimit:3},
+          afterDataLimits(scale){
+            // draw ref lines via plugin would need annotation lib
+            // Instead we extend scale to include ref values
+            if(refMin!=null)scale.min=Math.min(scale.min,refMin*0.95);
+            if(refMax!=null)scale.max=Math.max(scale.max,refMax*1.05);
+          }
+        }
+      }
+    },
+    plugins:[{
+      id:'refBand',
+      beforeDraw(chart){
+        if(refMin==null&&refMax==null)return;
+        const{ctx:c,chartArea:{left,right,top,bottom},scales:{y}}=chart;
+        const yT=refMax!=null?y.getPixelForValue(refMax):top;
+        const yB=refMin!=null?y.getPixelForValue(refMin):bottom;
+        c.save();
+        c.fillStyle='rgba(107,124,62,0.07)';
+        c.fillRect(left,Math.min(yT,top),right-left,Math.max(yB,bottom)-Math.min(yT,top));
+        c.restore();
+      }
+    }]
+  });
+}
+
+/* ── HELPERS ───────────────────────── */
+function sortedByDate(){return[...db.analyses].sort((a,b)=>new Date(b.date)-new Date(a.date));}
+function getTrend(name){const s=[...db.analyses].sort((a,b)=>new Date(a.date)-new Date(b.date)).map(a=>a.values?.find(v=>v.name===name)).filter(Boolean);if(s.length<2)return null;const last=parseFloat(s.at(-1).value),prev=parseFloat(s.at(-2).value);if(isNaN(last)||isNaN(prev))return null;const p=((last-prev)/Math.abs(prev)*100).toFixed(1);if(Math.abs(p)<1)return{i:'→',t:'Estable',c:'t-eq'};return p>0?{i:'↑',t:`+${p}%`,c:'t-up'}:{i:'↓',t:`${p}%`,c:'t-dn'};}
+function getBios(lim){
+  // Clinical priority: most important params to track over time
+  const PRIORITY=[
+    // Cardiovascular
+    'Colesterol LDL','Colesterol total','Colesterol HDL','Triglicéridos','Colesterol no HDL',
+    // Metabolic
+    'Glucosa','HbA1c','Resistencia insulínica',
+    // Liver
+    'ALT (GPT)','AST (GOT)','Gamma-GT','Fosfatasa alcalina',
+    // Renal
+    'Creatinina','Ácido úrico','Urea',
+    // Blood count
+    'Hemoglobina','Leucocitos','Plaquetas','Hematocrito',
+    // Hormones
+    'TSH','PSA',
+    // Immune
+    'Inmunoglobulina E',
+  ];
+  const names=new Map();
+  db.analyses.forEach(a=>(a.values||[]).forEach(v=>{
+    const nm=normalizeParam(v.name);
+    if(!names.has(nm))names.set(nm,{unit:v.unit,category:v.category,refMin:v.refMin,refMax:v.refMax});
+  }));
+  const sorted=[...db.analyses].sort((a,b)=>new Date(a.date)-new Date(b.date));
+  const allBios=[];
+  for(const[name,meta]of names){
+    const series=sorted.map(a=>({date:a.date,v:a.values?.find(v=>normalizeParam(v.name)===name)})).filter(x=>x.v);
+    if(!series.length)continue;
+    const lastV=series.at(-1).v;
+    const priorityIdx=PRIORITY.indexOf(name);
+    const hasMultiple=series.length>1;
+    const isAbnormal=lastV.status!=='normal';
+    // Score: priority rank + bonus for multiple points + bonus for abnormal
+    const score=(priorityIdx>=0?(PRIORITY.length-priorityIdx)*10:0)+(hasMultiple?5:0)+(isAbnormal?3:0);
+    allBios.push({
+      key:name.replace(/[^a-z0-9]/gi,'_'),
+      name,unit:meta.unit,category:meta.category,
+      refMin:meta.refMin,refMax:meta.refMax,
+      status:lastV.status,
+      lastVal:lastV.value,
+      dates:series.map(s=>s.date),
+      values:series.map(s=>s.v.value),
+      score,hasMultiple,isAbnormal,
+      priorityIdx
+    });
+  }
+  // Sort by score descending, prefer params with multiple datapoints
+  allBios.sort((a,b)=>b.score-a.score||(b.hasMultiple-a.hasMultiple));
+  return allBios.slice(0,lim);
+}
+
+function getBiosByGroup(){
+  // Returns bios organized by clinical group for evolution section
+  const GROUPS=[
+    {id:'cardio',label:'🫀 Riesgo Cardiovascular',params:['Colesterol LDL','Colesterol total','Colesterol HDL','Triglicéridos','Colesterol no HDL']},
+    {id:'meta',label:'⚡ Metabolismo',params:['Glucosa','HbA1c','Resistencia insulínica']},
+    {id:'hepatic',label:'🫁 Función Hepática',params:['ALT (GPT)','AST (GOT)','Gamma-GT','Fosfatasa alcalina']},
+    {id:'renal',label:'💧 Función Renal',params:['Creatinina','Ácido úrico','Urea']},
+    {id:'blood',label:'🩸 Hemograma',params:['Hemoglobina','Leucocitos','Plaquetas','Hematocrito','Neutrófilos','Linfocitos']},
+    {id:'hormones',label:'⚗️ Hormonas y Marcadores',params:['TSH','PSA','HbA1c','Inmunoglobulina E']},
+  ];
+  const sorted=[...db.analyses].sort((a,b)=>new Date(a.date)-new Date(b.date));
+  const allNames=new Map();
+  db.analyses.forEach(a=>(a.values||[]).forEach(v=>{
+    const nm=normalizeParam(v.name);
+    if(!allNames.has(nm))allNames.set(nm,{unit:v.unit,category:v.category,refMin:v.refMin,refMax:v.refMax});
+  }));
+
+  const result=[];
+  GROUPS.forEach(g=>{
+    const bios=[];
+    g.params.forEach(name=>{
+      if(!allNames.has(name))return;
+      const meta=allNames.get(name);
+      const series=sorted.map(a=>({date:a.date,v:a.values?.find(v=>normalizeParam(v.name)===name)})).filter(x=>x.v);
+      if(!series.length)return;
+      const lastV=series.at(-1).v;
+      bios.push({key:name.replace(/[^a-z0-9]/gi,'_'),name,unit:meta.unit,refMin:meta.refMin,refMax:meta.refMax,status:lastV.status,lastVal:lastV.value,dates:series.map(s=>s.date),values:series.map(s=>s.v.value),hasMultiple:series.length>1});
+    });
+    if(bios.length)result.push({...g,bios});
+  });
+
+  return result;
+}
+
+/* ── PRINT / INFORME PDF ──────────── */
+function openPrintModal(){
+  if(!db.analyses.length){toast('Sin analíticas para imprimir','err');return;}
+  const sorted=[...db.analyses].sort((a,b)=>new Date(b.date)-new Date(a.date));
+  const list=document.getElementById('printYearsList');
+  list.innerHTML=sorted.map(a=>`
+    <label style="display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--bg2);border:1px solid var(--border);border-radius:8px;cursor:pointer;font-size:13px;">
+      <input type="checkbox" value="${a.id}" checked style="accent-color:var(--sea);width:16px;height:16px;">
+      <div>
+        <div style="font-weight:600;color:var(--sea);font-family:var(--font-serif)">${fmtDate(a.date)}</div>
+        <div style="font-size:11px;font-family:var(--font-mono);color:var(--text-dim)">${a.lab||'Sin laboratorio'} · ${a.tipo==='empresa'?'Revisión empresa':'Personal'} · ${a.values?.length||0} parámetros</div>
+      </div>
+    </label>`).join('');
+  document.getElementById('printModal').classList.add('on');
+}
+function closePrintModal(){document.getElementById('printModal').classList.remove('on');}
+
+function generatePrint(){
+  const checked=[...document.querySelectorAll('#printYearsList input:checked')].map(i=>parseInt(i.value));
+  if(!checked.length){toast('Selecciona al menos una analítica','err');return;}
+  const selectedAnalyses=db.analyses.filter(a=>checked.includes(a.id)).sort((a,b)=>new Date(a.date)-new Date(b.date));
+  const incResumen=document.getElementById('pIncResumen').checked;
+  const incAlertas=document.getElementById('pIncAlertas').checked;
+  const incHistorico=document.getElementById('pIncHistorico').checked;
+  const incPerfil=document.getElementById('pIncPerfil').checked;
+  closePrintModal();
+  const win=window.open('','_blank','width=900,height=700');
+  win.document.write(buildPrintHTML(selectedAnalyses,{incResumen,incAlertas,incHistorico,incPerfil}));
+  win.document.close();
+  setTimeout(()=>win.print(),800);
+}
+
+function buildPrintHTML(analyses,opts){
+  const p=db.perfil||{};
+  const latest=analyses[analyses.length-1];
+  const vals=latest?.values||[];
+  const normals=vals.filter(v=>v.status==='normal').length;
+  const highs=vals.filter(v=>v.status==='high').length;
+  const lows=vals.filter(v=>v.status==='low').length;
+  const alerts=vals.filter(v=>v.status!=='normal');
+  const today2=new Date().toLocaleDateString('es-ES',{day:'2-digit',month:'long',year:'numeric'});
+
+  // Build historic table
+  const catOrder=['Hematología','Bioquímica','Lípidos','Hormonas','Coagulación','Inmunología','Orina','Otros'];
+  const catMap=new Map(); const paramMeta=new Map();
+  analyses.forEach(a=>(a.values||[]).forEach(v=>{
+    if(!paramMeta.has(v.name))paramMeta.set(v.name,{unit:v.unit,refMin:v.refMin,refMax:v.refMax,category:v.category||'Otros'});
+    const cat=v.category||'Otros';
+    if(!catMap.has(cat))catMap.set(cat,[]);
+    if(!catMap.get(cat).includes(v.name))catMap.get(cat).push(v.name);
+  }));
+  const sortedCats=[...catOrder.filter(c=>catMap.has(c)),...[...catMap.keys()].filter(c=>!catOrder.includes(c))];
+  const lookup=new Map();
+  analyses.forEach(a=>{const m=new Map();(a.values||[]).forEach(v=>m.set(v.name,v));lookup.set(a.date,m);});
+
+  let histHTML='';
+  if(opts.incHistorico){
+    sortedCats.forEach(cat=>{
+      const params=catMap.get(cat);
+      histHTML+=`<h3 style="color:#1e4d7b;font-family:Georgia,serif;margin:20px 0 8px;font-size:14px;border-bottom:1px solid #ddd;padding-bottom:4px">${cat}</h3>
+      <table style="width:100%;border-collapse:collapse;font-size:11px;margin-bottom:16px">
+        <thead><tr style="background:#f0e9de">
+          <th style="padding:6px 10px;text-align:left;border:1px solid #ddd;font-weight:500;color:#7a6b58">Parámetro</th>
+          <th style="padding:6px 10px;text-align:left;border:1px solid #ddd;font-weight:500;color:#7a6b58">Unidad</th>
+          <th style="padding:6px 10px;text-align:left;border:1px solid #ddd;font-weight:500;color:#7a6b58">Referencia</th>
+          ${analyses.map(a=>`<th style="padding:6px 10px;text-align:center;border:1px solid #ddd;color:#1e4d7b;font-weight:600">${fmtDate(a.date)}<br><span style="font-size:9px;color:#999;font-weight:400">${a.lab||''}</span></th>`).join('')}
+        </tr></thead><tbody>`;
+      params.forEach(name=>{
+        const meta=paramMeta.get(name)||{};
+        const refTxt=meta.refMin!=null&&meta.refMax!=null?`${meta.refMin}–${meta.refMax}`:meta.refMin!=null?`>${meta.refMin}`:meta.refMax!=null?`<${meta.refMax}`:'';
+        const hasAbnormal=analyses.some(a=>lookup.get(a.date)?.get(name)?.status!=='normal');
+        histHTML+=`<tr style="${hasAbnormal?'background:#fff8f5':''}">
+          <td style="padding:5px 10px;border:1px solid #ddd;font-weight:${hasAbnormal?'600':'400'}">${name}</td>
+          <td style="padding:5px 10px;border:1px solid #ddd;color:#999">${meta.unit||''}</td>
+          <td style="padding:5px 10px;border:1px solid #ddd;color:#999">${refTxt}</td>
+          ${analyses.map(a=>{
+            const v=lookup.get(a.date)?.get(name);
+            if(!v)return`<td style="padding:5px 10px;border:1px solid #ddd;text-align:center;color:#ccc">—</td>`;
+            const color=v.status==='high'?'#c0623c':v.status==='low'?'#d4933a':'#6b7c3e';
+            return`<td style="padding:5px 10px;border:1px solid #ddd;text-align:center;color:${color};font-weight:600">${v.value}</td>`;
+          }).join('')}
+        </tr>`;
+      });
+      histHTML+=`</tbody></table>`;
+    });
+  }
+
+  return`<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+  <title>Informe Analíticas – ${p.nombre||'Paciente'}</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'Helvetica Neue',Arial,sans-serif;color:#2c2417;background:#fff;font-size:12px;line-height:1.5;}
+    @page{size:A4;margin:15mm 12mm;}
+    @media print{body{-webkit-print-color-adjust:exact;print-color-adjust:exact;}.no-print{display:none;}.page-break{page-break-before:always;}}
+    .header{background:#1e4d7b;color:#fff;padding:20px 24px;display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;border-radius:8px;}
+    .header-left h1{font-family:Georgia,serif;font-size:22px;margin-bottom:4px;}
+    .header-left p{font-size:11px;opacity:0.7;}
+    .header-right{text-align:right;font-size:11px;opacity:0.8;}
+    .section{margin-bottom:20px;}
+    .section-title{font-family:Georgia,serif;font-size:16px;color:#1e4d7b;margin-bottom:10px;padding-bottom:4px;border-bottom:2px solid #1e4d7b;}
+    .pills-row{display:flex;gap:10px;margin-bottom:16px;}
+    .pill{background:#f0e9de;border-radius:20px;padding:5px 14px;font-size:11px;color:#7a6b58;}
+    .pill-ok{background:#e8f0dc;color:#6b7c3e;} .pill-hi{background:#fde8de;color:#c0623c;} .pill-lo{background:#fdf3de;color:#d4933a;}
+    .alert-row{display:flex;align-items:center;gap:10px;padding:8px 12px;border-radius:6px;margin-bottom:6px;border:1px solid;}
+    .alert-hi{background:#fde8de;border-color:#f0c0a8;color:#c0623c;} .alert-lo{background:#fdf3de;border-color:#f0dca8;color:#d4933a;}
+    .perfil-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px;}
+    .perfil-item label{display:block;font-size:10px;color:#999;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:2px;}
+    .perfil-item span{font-size:13px;font-weight:500;}
+    .footer{margin-top:30px;padding-top:12px;border-top:1px solid #ddd;font-size:10px;color:#999;text-align:center;}
+  </style></head><body>
+  <div class="header">
+    <div class="header-left">
+      <h1>🩺 Informe de Analíticas</h1>
+      <p>MiAnalítica · Generado el ${today2}</p>
+    </div>
+    <div class="header-right">
+      <div style="font-size:14px;font-weight:600">${p.nombre||'Paciente'}</div>
+      ${p.fecha?`<div>Nacimiento: ${new Date(p.fecha).toLocaleDateString('es-ES')}</div>`:''}
+      ${p.grupo?`<div>Grupo sanguíneo: ${p.grupo}</div>`:''}
+      <div>Analíticas incluidas: ${analyses.length}</div>
+    </div>
+  </div>
+
+  ${opts.incPerfil&&(p.nombre||p.medico||p.alergias)?`
+  <div class="section">
+    <div class="section-title">Datos del Paciente</div>
+    <div class="perfil-grid">
+      ${p.nombre?`<div class="perfil-item"><label>Nombre</label><span>${p.nombre}</span></div>`:''}
+      ${p.fecha?`<div class="perfil-item"><label>Fecha nacimiento</label><span>${new Date(p.fecha).toLocaleDateString('es-ES')}</span></div>`:''}
+      ${p.sexo?`<div class="perfil-item"><label>Sexo</label><span>${p.sexo==='M'?'Masculino':'Femenino'}</span></div>`:''}
+      ${p.grupo?`<div class="perfil-item"><label>Grupo sanguíneo</label><span>${p.grupo}</span></div>`:''}
+      ${p.medico?`<div class="perfil-item"><label>Médico</label><span>${p.medico}</span></div>`:''}
+      ${p.alergias?`<div class="perfil-item"><label>Alergias/Medicación</label><span>${p.alergias}</span></div>`:''}
+    </div>
+  </div>`:''}
+
+  <div class="section">
+    <div class="section-title">Analíticas incluidas en este informe</div>
+    <table style="width:100%;border-collapse:collapse;font-size:11px;margin-bottom:8px">
+      <thead><tr style="background:#f0e9de">
+        <th style="padding:6px 10px;text-align:left;border:1px solid #ddd;font-weight:500;color:#7a6b58">Fecha</th>
+        <th style="padding:6px 10px;text-align:left;border:1px solid #ddd;font-weight:500;color:#7a6b58">Laboratorio</th>
+        <th style="padding:6px 10px;text-align:left;border:1px solid #ddd;font-weight:500;color:#7a6b58">Tipo</th>
+        <th style="padding:6px 10px;text-align:center;border:1px solid #ddd;font-weight:500;color:#7a6b58">Parámetros</th>
+        <th style="padding:6px 10px;text-align:center;border:1px solid #ddd;font-weight:500;color:#7a6b58">Normales</th>
+        <th style="padding:6px 10px;text-align:center;border:1px solid #ddd;font-weight:500;color:#7a6b58">Alterados</th>
+      </tr></thead>
+      <tbody>
+        ${analyses.map(a=>{const av=a.values||[];const an=av.filter(v=>v.status==='normal').length;const aa=av.filter(v=>v.status!=='normal').length;return`<tr><td style="padding:6px 10px;border:1px solid #ddd;font-weight:600;color:#1e4d7b">${fmtDate(a.date)}</td><td style="padding:6px 10px;border:1px solid #ddd">${a.lab||'—'}</td><td style="padding:6px 10px;border:1px solid #ddd">${a.tipo==='empresa'?'Revisión empresa':'Personal'}</td><td style="padding:6px 10px;border:1px solid #ddd;text-align:center">${av.length}</td><td style="padding:6px 10px;border:1px solid #ddd;text-align:center;color:#6b7c3e;font-weight:600">${an}</td><td style="padding:6px 10px;border:1px solid #ddd;text-align:center;color:${aa>0?'#c0623c':'#6b7c3e'};font-weight:600">${aa}</td></tr>`;}).join('')}
+      </tbody>
+    </table>
+  </div>
+
+    ${opts.incResumen?`
+  <div class="section">
+    <div class="section-title">Estado General · Última analítica (${fmtDate(latest?.date||'')})</div>
+    <div class="pills-row">
+      <span class="pill pill-ok">✓ ${normals} parámetros normales</span>
+      ${highs?`<span class="pill pill-hi">↑ ${highs} elevados</span>`:''}
+      ${lows?`<span class="pill pill-lo">↓ ${lows} bajos</span>`:''}
+      <span class="pill">${latest?.lab||''}</span>
+    </div>
+    ${latest?.summary?`<p style="color:#7a6b58;font-style:italic;margin-bottom:8px">${latest.summary}</p>`:''}
+  </div>`:''}
+
+  ${opts.incAlertas&&alerts.length?`
+  <div class="section">
+    <div class="section-title">Parámetros Fuera de Rango</div>
+    ${alerts.map(v=>`
+    <div class="alert-row alert-${v.status==='high'?'hi':'lo'}">
+      <span style="font-size:14px">${v.status==='high'?'⬆️':'⬇️'}</span>
+      <span style="flex:1;font-weight:600">${v.name}</span>
+      <span style="font-weight:700">${v.value} ${v.unit||''}</span>
+      <span style="margin-left:10px;font-size:10px">${v.refMin!=null||v.refMax!=null?'Ref: '+(v.refMin!=null?v.refMin:'')+(v.refMin!=null&&v.refMax!=null?'–':'')+(v.refMax!=null?v.refMax:''):''}</span>
+    </div>`).join('')}
+  </div>`:''}
+
+  ${opts.incHistorico?`
+  <div class="section ${opts.incResumen||opts.incAlertas?'page-break':''}">
+    <div class="section-title">Histórico Completo por Parámetro</div>
+    ${histHTML}
+  </div>`:''}
+
+  <div class="footer">Informe generado por MiAnalítica · Este documento es orientativo y no reemplaza el diagnóstico médico profesional.</div>
+</body></html>`;
+}
+
+/* ── EXPORT / IMPORT ──────────────── */
+function exportData(){
+  const payload={version:'3.5',exportedAt:new Date().toISOString(),db:db,perfil:db.perfil};
+  const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;
+  const d=new Date().toISOString().split('T')[0];
+  a.download=`MiAnalítica_backup_${d}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+  toast('✓ Datos exportados correctamente');
+}
+
+function importData(e){
+  const file=e.target.files[0];if(!file)return;
+  const reader=new FileReader();
+  reader.onload=ev=>{
+    try{
+      const data=JSON.parse(ev.target.result);
+      if(!data.db&&!data.analyses){throw new Error('Formato no reconocido');}
+      const imported=data.db||data;
+      if(!Array.isArray(imported.analyses)){throw new Error('Sin analíticas válidas');}
+      db=imported;
+      saveDB();
+      const st=document.getElementById('importStatus');
+      if(st){st.textContent=`✓ ${imported.analyses.length} analíticas importadas`;st.style.color='var(--olive)';}
+      toast(`✓ ${imported.analyses.length} analíticas importadas correctamente`);
+      renderDash();
+    }catch(err){
+      const st=document.getElementById('importStatus');
+      if(st){st.textContent='✗ Error: '+err.message;st.style.color='var(--terra)';}
+      toast('Error al importar: '+err.message,'err');
+    }
+  };
+  reader.readAsText(file);
+  e.target.value='';
+}
+
+
+function normalizeAllSaved(){
+  let changed=0;
+  db.analyses.forEach(a=>{
+    if(!a.values)return;
+    const seen=new Map();
+    a.values.forEach(v=>{
+      const canonical=normalizeParam(v.name);
+      seen.set(canonical,{...v,name:canonical});
+    });
+    const before=a.values.length;
+    a.values=[...seen.values()];
+    changed+=(before-a.values.length);
+  });
+  saveDB();
+  toast(`✓ Parámetros normalizados · ${changed} duplicados eliminados`);
+  renderDash();
+}
+
+function deleteAllData(){
+  if(!confirm('⚠️ ¿Eliminar TODOS los datos? Se borrarán todas las analíticas y el perfil. Esta acción no se puede deshacer.'))return;
+  if(!confirm('Confirma de nuevo: ¿eliminar todo definitivamente?'))return;
+  db={analyses:[],perfil:{}};
+  saveDB();
+  localStorage.removeItem('mt_key');
+  toast('✓ Todos los datos eliminados');
+  go('dashboard');
+}
+/* ── INIT ──────────────────────────── */
+loadDB();loadKey();renderDash();
+</script>
+</body>
+</html>
